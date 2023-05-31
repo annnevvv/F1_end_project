@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from . import views
+from F1.blog.migrations import views
 
 urlpatterns = [
     path('', views.BlogMainPageView.as_view(), name='blog_main_page'),
