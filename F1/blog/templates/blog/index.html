@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+The F1 Blog
+{% endblock %}
+
+<section id="latest-posts">
+    <h2>Our Latest Posts</h2>
+    <ul>
+        {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What Do We do</h2>
+    <p>We are passionate about the Queen of the Motorsport!</p>
+    <p>Our goal is spread the F1 word around the world.</p>
+</section>
+{% endblock %}
