@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+    {% block css_files %} {% endblock %}
+</head>
+<body>
+<header id="page-header">
+    <nav class="nav-bar">
+        <img class="logo" src="F1.png">
+
+        <ul>
+            <a href="{% url 'home' %}"><li>HOME</li></a>
+            <a href="{% url 'about' %}"><li>ABOUT</li></a>
+            <a href="{% url 'home' %}"><li>STATS</li></a>
+            <a href="{% url 'about' %}"><li>QUIZ</li></a>
+            <a href="{% url 'home' %}"><li>PREDICTIONS</li></a>
+            <a href="{% url 'about' %}"><li>BLOG</li></a>
+            <a href="{% url 'about' %}"><li>CONTACT</li></a>
+        </ul>
+    </nav>
+</header>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
