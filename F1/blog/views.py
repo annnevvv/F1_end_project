@@ -108,3 +108,7 @@ class PostsStorageView(View):
         request.session['stored_posts'] = stored_posts
 
         return HttpResponseRedirect("/blog")
+
+
+class Vieww(View):
+    pass
