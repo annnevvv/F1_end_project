@@ -14,7 +14,7 @@ all_posts = Post.objects.all().order_by('-date')
 
 
 class BlogMainPageView(ListView):
-    template_name = "blog/blog_main.html"
+    template_name = "blog/index.html"
     model = Post
     ordering = ['-date']
     context_object_name = 'posts'

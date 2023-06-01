@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from statisticsapp.models import Constructor, Driver, Circuit, DriverResult, DriverStanding
+from statisticsapp.models import DriverResult
+# Register your models here.
+from statisticsapp.models import DriverResult
 
-admin.site.register(Constructor)
-admin.site.register(Driver)
-admin.site.register(Circuit)
+
 admin.site.register(DriverResult)
-admin.site.register(DriverStanding)
+
+
