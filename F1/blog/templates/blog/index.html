@@ -4,6 +4,10 @@
 {% block title %}
 The F1 Blog
 {% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}" />
+<link rel="stylesheet" href="{% static 'blog/index.css' %}" />
+{% endblock %}
 {% block content %}
 <section id="latest-posts">
     <h2>Our Latest Posts</h2>
