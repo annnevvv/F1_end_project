@@ -1,8 +1,23 @@
 .post {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   align-items: center;
   text-align: center;
+  height: auto;
+}
+
+@media screen and (min-width: 780px) {
+    .post {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .post {
+        flex-wrap: nowrap;
+    }
 }
 
 .post a {

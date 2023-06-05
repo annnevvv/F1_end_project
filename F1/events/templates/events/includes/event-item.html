@@ -1,0 +1,16 @@
+<li class="event-item">
+    <article>
+        <div class="event-summary">
+            <div class="event-image">
+                <img src="{{ image }}" alt="{{ title }}">
+            </div>
+            <div class="event-details">
+                <h3>{{ title }}</h3>
+                <address>{{ location }}</address>
+            </div>
+        </div>
+        <div class="event-actions">
+            <a href="{% url 'event-detail' slug %}" class="btn">More Details</a>
+        </div>
+    </article>
+</li>

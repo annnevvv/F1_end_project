@@ -78,3 +78,30 @@ h3 {
     }
 
 }
+
+.section-footer {
+    gap: 15px;
+    border-top: 3px solid rgb(150, 150, 150);
+    margin-top: 15px;
+    padding-top: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+    background-color: rgb(150, 150, 150);
+    text-align: center;
+}
+
+.section-footer a {
+    color: #fff;
+    text-decoration: none;
+    margin-inline: 25px;
+    text-align: center;
+}
+
+@media screen and (min-width: 780px) {
+    .section-footer a {
+        background-color: rgb(150, 150, 150);
+        color: white;
+        padding: 0;
+        text-decoration: underline;
+    }
+}

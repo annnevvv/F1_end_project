@@ -3,27 +3,27 @@ body {
 }
 
 #summary {
-  margin: 8rem auto 3rem auto;
-  padding: 2rem;
-  width: 90%;
-  max-width: 90rem;
+  margin: 4rem auto 3rem auto;
+  padding: 1rem;
+  width: 75%;
+  max-width: 70rem;
   border-radius: 16px;
-  background-color: red;
+  background-color: rgb(255, 0, 0, 0.75);
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 22rem;
+  height: 20rem;
 }
 
 #summary h2 {
   color: white;
-  font-size: 4.5rem;
-  margin-bottom: 0.25rem;
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
 }
 
 #summary article {
   position: absolute;
   top: 2rem;
-  right: 3rem;
+  right: 1rem;
   padding: 1rem 2rem;
   border-radius: 12px;
   text-align: right;
@@ -31,11 +31,12 @@ body {
 }
 
 #summary article img {
-  width: 12rem;
-  height: 12rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 12px;
   transform: rotateZ(5deg);
   border: 5px solid white;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -72,8 +73,8 @@ color: #390281;
 }
 
 main {
-  width: 90%;
-  max-width: 90rem;
+  width: 75%;
+  max-width: 70rem;
   margin: 3rem auto;
   background-color: white;
   padding: 1rem;
@@ -100,9 +101,9 @@ padding: 1rem;
 
 #comment-form button {
 font: inherit;
-background-color: #390281;
+background-color: red;
 color: white;
-border: 1px solid #390281;
+border: 1px solid red;
 padding: 0.5rem 1.5rem;
 border-radius: 6px;
 cursor: pointer;
@@ -110,8 +111,8 @@ cursor: pointer;
 
 #comment-form button:hover,
 #comment-form button:active {
-background-color: #4f0ba7;
-border-color: #4f0ba7;
+background-color: rgb(255, 0, 0, 0.75);
+border-color: rgb(255, 0, 0, 0.75)
 }
 
 .form-control {

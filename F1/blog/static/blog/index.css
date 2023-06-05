@@ -1,10 +1,26 @@
 #latest-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   background-color: white;
   padding: 2rem;
   border-radius: 12px;
   width: 60rem;
-  margin: -6rem auto 2rem auto;
+  margin: 4rem auto 2rem auto;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (min-width: 780px) {
+    .latest-posts {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .latest-posts {
+        flex-wrap: nowrap;
+    }
 }
 
 #latest-posts h2 {
@@ -22,6 +38,7 @@
 #latest-posts li {
   flex: 1;
 }
+
 #about {
     text-align: center;
     padding: 3rem;

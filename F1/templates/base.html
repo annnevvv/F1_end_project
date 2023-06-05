@@ -10,9 +10,9 @@
     {% block css_files %} {% endblock %}
 </head>
 <body>
-<header id="page-header">
+<header class="page-header">
     <nav class="nav-bar">
-        <img class="logo" src="F1.png">
+        <img class="logo" src="{% static 'blog/images/F1.png' %}">
 
         <ul>
             <a href=""><li>HOME</li></a>
@@ -27,5 +27,10 @@
 </header>
   {% block content %}
   {% endblock %}
+<div class="section-footer">
+            <a href="#">ABOUT</a>
+            <a href="#">SHARE</a>
+            <a href="#">CONTACT</a>
+</div>
 </body>
 </html>

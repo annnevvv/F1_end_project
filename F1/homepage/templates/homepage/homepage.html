@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+THE F1NAL PROJECT
+{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'homepage.css' %}" />
+{% endblock %}
+{% block content %}
+<section class="background-section">
+    <div class="container">
+        <div class="float-container">
+            <img class="page-logo" src="{% static 'images/about-p.png' %}" alt="image">
+            <h1 style="text-align: center">ABOUT PROJECT</h1>
+            <p style="color: white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum ducimus illum sit. Laborum perferendis officia vitae maiores consectetur! Ratione dolore iusto laboriosam repellendus perferendis! Culpa laudantium a eaque mollitia? Molestias.
+                Eaque, facilis dolore sit eos quaerat delectus vitae nobis odit dolorem perferendis. Repellat esse optio cupiditate ratione est voluptate fugit, praesentium voluptatem amet repudiandae exercitationem quibusdam accusamus culpa quisquam nisi?
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="box-container">
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/stats.png' %}" alt="box image">
+                <h2 align="center">F1 STATS</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nostrum officia expedita, exercitationem eveniet laudantium doloribus temporibus deserunt autem hic dolore culpa illo minus earum dolorum, deleniti numquam veniam! Laborum.</p>
+                <div class="box-footer">
+                    <a class="box-button" href="#">SEE WHO'S WINNING</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/games.png' %}" alt="box image">
+                <h2 align="center">GAMES</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nostrum officia expedita, exercitationem eveniet laudantium doloribus temporibus deserunt autem hic dolore culpa illo minus earum dolorum, deleniti numquam veniam! Laborum.</p>
+                <div class="box-footer">
+                    <a class="box-button" href="#">LET'S PLAY!</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/predict.png' %}" alt="box image">
+                <h2 align="center">PREDICTIONS</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nostrum officia expedita, exercitationem eveniet laudantium doloribus temporibus deserunt autem hic dolore culpa illo minus earum dolorum, deleniti numquam veniam! Laborum.</p>
+                <div class="box-footer">
+                    <a class="box-button" href="#">WHO CAN STILL WIN</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/news.png' %}" alt="box image">
+                <h2 align="center">NEWS</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nostrum officia expedita, exercitationem eveniet laudantium doloribus temporibus deserunt autem hic dolore culpa illo minus earum dolorum, deleniti numquam veniam! Laborum.</p>
+                <div class="box-footer">
+                    <a class="box-button" href="#">LATEST NEWS FROM PADDOCK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="background-section">
+    <div class="container">
+        <h2>TIME UNTIL NEXT RACE</h2>
+        <p>CLOCK COUNTDOWN IN HERE</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
+        <p>WEATHER API IN HERE</p>
+    </div>
+</section>
+{% endblock %}

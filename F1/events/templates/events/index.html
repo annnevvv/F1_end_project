@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Events{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'events/all-events.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="all-events">
+    <h2>All Events</h2>
+    <h3 align="center">We have great Formula 1 races coming up!</h3>
+    <p align="center">Watch every one of them!</p>
+</div>
+
+
+<div id="list-events">
+    <h2 align="center">Upcoming Races</h2>
+        <ol>
+            {% for event_item in events %}
+                {% include 'events/includes/event-item.html' with title=event_item.title image=event_item.image.url location='Barcelona' slug=event_item.slug %}
+            {% endfor %}
+        </ol>
+</div>
+{% endblock %}

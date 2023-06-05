@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}You registered successfully!{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'events/registration-confirmation.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<section id="confirmation">
+  <h2>You registered successfully!</h2>
+  <p>Thanks for signing up - see you at the event!</p>
+  <p>Got questions or can't make it? Please <a href="mailto:{{ organizer_email }}">contact the organizer</a> ahead of time!</p>
+</section>
+
+<section id="continue">
+  <p>Of course you can sign up for more than one event!</p>
+  <p><a href="/events" class="btn">Explore our Events</a></p>
+</section>
+{% endblock %}
