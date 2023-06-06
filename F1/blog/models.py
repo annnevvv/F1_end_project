@@ -22,6 +22,13 @@ class Author(models.Model):
             return self.full_name()
 
 
+class Tag(models.Model):
+    caption = models.CharField(max_length=20)
+
+    def __str__(self) -> str:
+        return self.caption
+
+
 class Post(models.Model):
     title = models.CharField(max_length=150)
     excerpt = models.CharField(max_length=250)
@@ -46,10 +53,3 @@ class Comment(models.Model):
     txt = models.TextField(max_length=500)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name='comments')
-
-
-class Tag(models.Model):
-    caption = models.CharField(max_length=20)
-
-    def __str__(self) -> str:
-        return self.caption
