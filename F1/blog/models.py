@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MinLengthValidator, MaxLengthValidator
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -27,12 +29,14 @@ class Post(models.Model):
     date = models.DateField(auto_now=True)
     txt = models.TextField(
         validators=[MinLengthValidator(200), MaxLengthValidator(3000)])
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, null=False)
+    user = models.ForeignKey(
+        User, null=True, on_delete=models.CASCADE, related_name='posts')
     author = models.ForeignKey(
-        Author, null=True, on_delete=models.SET_NULL, related_name='posts')
+        Author, null=True, on_delete=models.CASCADE, related_name='posts')
     tags = models.ManyToManyField(Tag)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.slug
 
 
