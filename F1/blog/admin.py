@@ -8,7 +8,7 @@ from .models import Author, Post, Comment, Tag
 class PostAdmin(admin.ModelAdmin):
     list_filter = ('author', 'tags')
     list_display = ('title', 'author', 'date')
-    prepopulated_fields = {'slug': ("title",)}
+    # prepopulated_fields = {'slug': ("title",)}
 
 
 class CommentAdmin(admin.ModelAdmin):
