@@ -18,7 +18,7 @@ def memberRegisterConfirmation(request):
 
 
 @login_required(login_url='/login')
-def memberdashboard(request):
+def memberDashboard(request):
     posts = Post.objects.all()
 
     if request.method == 'POST':

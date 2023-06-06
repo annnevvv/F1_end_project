@@ -1,13 +1,13 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-from . import views
+from .views import goToMemberRegister, signUp, memberRegisterConfirmation, memberDashboard
 
 urlpatterns = [
 
-    path('', views.goToMemberRegister, name='go_to_register_or_login'),
-    path('signup', views.signUp, name='sign_up'),
-    path('confirm-memeber-account-created', views.memberRegisterConfirmation,
+    path('', goToMemberRegister, name='go_to_register_or_login'),
+    path('signup', signUp, name='sign_up'),
+    path('confirm-memeber-account-created', memberRegisterConfirmation,
          name='confirm-memeber-account-created'),
 
     path('password-change-done', auth_views.PasswordChangeDoneView.as_view(
@@ -19,6 +19,6 @@ urlpatterns = [
     path('password-reset', auth_views.PasswordResetView.as_view(
         template_name='password-reset.html')),
 
-    path('dashboard', views.memberdashboard, name='member_dashboard'),
+    path('dashboard', memberDashboard, name='member_dashboard'),
 
 ]
