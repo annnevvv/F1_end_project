@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 from .models import Post
-from .forms import CommentForm
-
+from .forms import CommentForm, PostCreatedForm
 
 # Create your views here.
 
@@ -30,6 +30,7 @@ class AllPostView(ListView):
     model = Post
     ordering = ['-date']
     context_object_name = 'all_posts'
+
 
 class SinglePostView(View):
 
@@ -63,7 +64,8 @@ class SinglePostView(View):
             comment.post = post
             comment.save()
 
-            return HttpResponseRedirect(reverse('post-detail-page', args=[slug]))
+            return HttpResponseRedirect(
+                reverse('post-detail-page', args=[slug]))
 
         context = {
             'post': post,
@@ -74,7 +76,6 @@ class SinglePostView(View):
         }
 
         return render(request, 'blog/post-detail.html', context)
-
 
 
 class PostsStorageView(View):
@@ -110,5 +111,16 @@ class PostsStorageView(View):
         return HttpResponseRedirect("/blog")
 
 
-class Vieww(View):
-    pass
+@login_required(login_url='/login')
+def createPost(request):
+    if request.method == 'POST':
+        form = PostCreatedForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            return redirect('homepage')
+    else:
+        form = PostCreatedForm()
+
+    return render(request, 'blog/create-post.html', {'form': form})
