@@ -13,3 +13,10 @@ class CommentForm(forms.ModelForm):
             'txt': 'Your Comment'
         }
         # fields = ['user_name', 'user_email', 'txt', 'post']
+
+
+class PostCreatedForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'excerpt', 'txt', 'slug']
+        # prepopulated = ['slug']
