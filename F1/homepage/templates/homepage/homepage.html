@@ -73,7 +73,25 @@ THE F1NAL PROJECT
 <section>
     <div class="container">
         <h2>WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
-        <p>WEATHER API IN HERE</p>
+        <div>
+
+            <p>city {{ city }}</p>
+            <img src="https://api.openweathermap.org/img/w/{{icon}}.png" width="30" alt="">
+            <p>description {{ description }}</p>
+            <p>temp {{ temp }}</p>
+            <p>temp_min {{ temp_min }}</p>
+            <p>temp_max {{ temp_max }}</p>
+            <p>pressure {{ pressure }}</p>
+            <p>humidity {{ humidity }}</p>
+            <p>wind {{ wind }}</p>
+            <p>clouds {{ clouds }}</p>
+            <p>country {{ country }}</p>
+            <p>sunrise {{ sunrise }}</p>
+            <p>sunset {{ sunset }}</p>
+            <p>timezone {{ timezone }}</p>
+            <p>day {{ day }}</p>
+
+            </div>
     </div>
 </section>
 {% endblock %}
