@@ -17,19 +17,15 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-
 from django.conf.urls.static import static
 
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'), name='blog'),
-    path('homepage/', include('homepage.urls'), name='homepage'),
-    path('quiz/',include('blog.urls'), name='quiz'),
-    path('users/', include('blog.urls'), name='users'),
-    path('stats/',include('blog.urls'), name='stats'),
-    path('events/', include('events.urls'), name='events')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', include('django.contrib.auth.urls')),
+                  path('blog/', include('blog.urls'), name='blog'),
+                  path('homepage/', include('homepage.urls'), name='homepage'),
+                  path('quiz/', include('blog.urls'), name='quiz'),
+                  path('stats/', include('blog.urls'), name='stats'),
+                  path('events/', include('events.urls'), name='events'),
+                  path('members/', include('members.urls'), name='members'),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
