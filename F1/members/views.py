@@ -3,7 +3,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegistrationForm
-from F1.blog.models import Post
+from blog.models import Post
 
 
 # Create your views here.
