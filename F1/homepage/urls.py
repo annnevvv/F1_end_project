@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from homepage.views import homePage
+from .views import homePage
 
 urlpatterns = [
     path('', homePage, name='homepage'),
