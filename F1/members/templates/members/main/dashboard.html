@@ -1,0 +1,62 @@
+{% load crispy_forms_tags %}
+
+<h1>DASHBOARD<h1>
+   
+<div>
+    <h2>Welcome {{ user }}</h2>
+    <h3>Here you can:</h3>
+    <li>Trackt smth</li>
+    <li>Manage Account</li>    
+
+</div>
+
+{% for post in posts %}
+
+    {% if user == post.user %}
+
+        <div>
+
+            <div>@{{post.author.name}}{{post.user.username}}</div>
+            
+            <div>
+                <h5>{{ post.title }}</h5>
+                <p>{{ post.excerpt }}</p>
+                <p>{{ post.tags }}</p>
+                <h5>{{ post.txt }}</h5>
+
+            </div>
+    
+            <div>
+                {% if user == post.user %}                    
+
+                    <form method='POST'>
+
+                        {% csrf_token %}
+
+                        <button type="submit" name='post-id' value='{{ post.id }}'>DELETE</button>
+
+                    </form>
+
+
+
+                {% endif %}
+
+            </div>
+
+        </div>    
+
+    {% endif %}
+
+{% empty %}
+
+    <p>You havnt any post yet :(</p>
+
+{% endfor %}
+
+
+<div>
+    {% comment %} <a href="{% url '' %}">Trackt smth</a> {% endcomment %}
+    {% comment %} <a href="{% url 'member_profile_manage' %}">Manage Account</a> {% endcomment %}
+    <a href="{% url 'logout' %}">Delete Account</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</div>

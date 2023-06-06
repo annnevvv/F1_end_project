@@ -1,0 +1,27 @@
+
+<h1>Profile Manage</h1>
+
+<div>
+    <h2>Tracking smth</h2>
+</div>
+
+<div>
+    <h2>Update profile</h2>
+    <form action="POST" autocomplete="off">
+        
+        {% csrf_token %}
+
+        {{user_form.usermane }}
+        {{user_form.email }}
+        {{user_form.password }}
+
+        <button type="'submit">UPDATE DATE </button>
+
+    </form>
+</div>
+
+
+<div>
+    <h2>Delete account</h2>
+    <a href="{% url 'delete_account'}"></a>
+</div>

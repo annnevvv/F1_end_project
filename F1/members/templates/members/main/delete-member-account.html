@@ -1,0 +1,20 @@
+<h1>Delete your account</h1>
+
+
+<div>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <p>Are you sure???</p>
+
+        <!-- {{ user_form|as_crispy_field }} -->
+
+        <button type="submit">DELETE ACCOUNT</button>
+
+        <a href="{% url 'member_profile_manage' %}"></a>
+
+    </form>
+
+</div>

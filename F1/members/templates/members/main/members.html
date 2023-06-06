@@ -1,0 +1,19 @@
+{% extends 'members/main/base.html' %}
+
+{% block title %}Members{% endblock %}
+
+
+{% block content %}
+
+<h1>Do u want to me member of our society?</h1>
+<div>
+    <a href="{% url 'sign_up' %}">CREATE MEMBER ACCOUNT</a>
+    <p></p>
+    <a href="{% url 'login' %}">LOGIN</a>
+</div> 
+
+{% endblock %}
+
+
+{% block footer %} {% endblock %}
+
