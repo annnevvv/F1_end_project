@@ -28,7 +28,8 @@ urlpatterns = [
     path('quiz/',include('blog.urls'), name='quiz'),
     path('users/', include('blog.urls'), name='users'),
     path('stats/',include('blog.urls'), name='stats'),
-    path('events/', include('events.urls'), name='events')
+    path('events/', include('events.urls'), name='events'),
+    path('about/', include('aboutpage.urls'), name='about')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
