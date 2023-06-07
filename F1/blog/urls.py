@@ -8,5 +8,6 @@ urlpatterns = [
     path('', BlogMainPageView.as_view(), name='blog_main_page'),
     path('posts', AllPostView.as_view(), name='posts_list'),
     path("posts/<slug:slug>", SinglePostView.as_view(),name='post-detail-page'),
+    path('stats/', include("stats.urls")),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
