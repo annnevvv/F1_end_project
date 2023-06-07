@@ -9,5 +9,6 @@ urlpatterns = [
     path('posts', AllPostView.as_view(), name='posts_list'),
     path("posts/<slug:slug>", SinglePostView.as_view(), name='post-detail-page'),
     path('create-post', createPost, name='create_post'),
+    path("posts/<slug:slug>", SinglePostView.as_view(),name='post-detail-page'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

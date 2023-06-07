@@ -37,13 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'crispy_forms',
     "crispy_bootstrap5",
-
     'members.apps.MembersConfig',
-
     'blog',
+    'stats'
     'homepage',
     'events',
     'aboutpage'
@@ -91,9 +89,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    },
+    'mySQL': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'formula1',
+        'USER': 'root',
+        'PASSWORD': 'Dareczek123',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    },
 }
 
+DATABASE_ROUTERS = ['routers.DatabaseRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
