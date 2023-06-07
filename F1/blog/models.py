@@ -43,8 +43,8 @@ class Post(models.Model):
         related_name='posts')
     author = models.ForeignKey(
         Author, blank=True, null=True, on_delete=models.CASCADE,
-        related_name='posts', default='RegularUser')
-    tags = models.ManyToManyField(Tag)
+        related_name='posts')
+    tags = models.ManyToManyField(Tag, null=True, blank=True)
 
     def __str__(self):
         return self.slug
