@@ -40,10 +40,10 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, null=False)
     user = models.ForeignKey(
         User, blank=True, null=True, on_delete=models.CASCADE,
-        related_name='posts', default='RegularUser')
+        related_name='posts')
     author = models.ForeignKey(
         Author, blank=True, null=True, on_delete=models.CASCADE,
-        related_name='posts')
+        related_name='posts', default='RegularUser')
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
