@@ -119,7 +119,7 @@ def createPost(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            return redirect('homepage')
+            return redirect('create_post_confirmation')
     else:
         form = PostCreatedForm()
 
