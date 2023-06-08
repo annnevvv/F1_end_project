@@ -119,8 +119,11 @@ def createPost(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            return redirect('homepage')
+            return redirect('create_post_confirmation')
     else:
         form = PostCreatedForm()
 
     return render(request, 'blog/create-post.html', {'form': form})
+
+def createPostConfirmation(request):
+    return render(request, 'blog/create-post-confirmation.html')

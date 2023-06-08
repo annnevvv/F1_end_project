@@ -1,0 +1,23 @@
+<h1>Circuits List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Circuit ID</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for circuit in circuits|dictsort:"date" %}
+        <tr>
+            <td>{{ circuit.circuitid }}</td>
+            <td>{{ circuit.name }}</td>
+            <td>{{ circuit.country }}</td>
+            <td>{{ circuit.city }}</td>
+            <td>{{ circuit.date }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
