@@ -124,3 +124,6 @@ def createPost(request):
         form = PostCreatedForm()
 
     return render(request, 'blog/create-post.html', {'form': form})
+
+def createPostConfirmation(request):
+    return render(request, 'blog/create-post-confirmation.html')
