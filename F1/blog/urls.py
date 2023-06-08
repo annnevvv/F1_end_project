@@ -10,5 +10,6 @@ urlpatterns = [
     path("posts/<slug:slug>", SinglePostView.as_view(), name='post-detail-page'),
     path('create-post', createPost, name='create_post'),
     path('create-post-confirmation', createPostConfirmation(), name='create_post_confirmation'),
+    path('stats/', include("stats.urls")),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

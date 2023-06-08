@@ -1,0 +1,21 @@
+<h1>Drivers List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Driver ID</th>
+            <th>Driver</th>
+            <th>Country</th>
+            <th>Constructor ID</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for driver in drivers %}
+        <tr>
+            <td>{{ driver.driverid }}</td>
+            <td>{{ driver.driver }}</td>
+            <td>{{ driver.country }}</td>
+            <td>{{ driver.constructorid.constructorid }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
