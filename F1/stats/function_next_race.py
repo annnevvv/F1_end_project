@@ -10,7 +10,10 @@ from django.shortcuts import render
 
 
 upcoming_races = Circuits.get_upcoming_races()
-for race in upcoming_races:
-    print(race.city, race.time)
+
+def nextRace():
+
+    for race in upcoming_races:
+            return (race.city, race.time)
 
 
