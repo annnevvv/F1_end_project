@@ -37,7 +37,7 @@ class Post(models.Model):
     date = models.DateField(auto_now=True)
     txt = models.TextField(
         validators=[MinLengthValidator(200), MaxLengthValidator(3000)])
-    slug = models.SlugField(unique=True, null=False)
+    slug = models.SlugField(unique=False, null=False)
     user = models.ForeignKey(
         User, blank=True, null=True, on_delete=models.CASCADE,
         related_name='posts')

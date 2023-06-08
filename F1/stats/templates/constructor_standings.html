@@ -1,0 +1,21 @@
+<h1>Driver Standings</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Standings ID</th>
+            <th>Points</th>
+            <th>Wins</th>
+            <th>Constructor ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for standing in standings|dictsortreversed:"points" %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ standing.points }}</td>
+            <td>{{ standing.wins }}</td>
+            <td>{{ standing.constructorid.constructorid }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
