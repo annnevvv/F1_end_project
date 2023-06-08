@@ -13,15 +13,17 @@
 <header class="page-header">
     <nav class="nav-bar">
         <img class="logo" src="{% static 'blog/images/F1.png' %}">
-
+        <ul id="top-right-links">
+            <a href="#"><li style="color: red;">LOGIN</li></a>
+            <a href="#"><li style="color: red;">REGISTER</li></a>
+        </ul>
         <ul>
             <a href=""><li>HOME</li></a>
             <a href=""><li>ABOUT</li></a>
             <a href="{% url "driver_standings" %}"><li>STATS</li></a>
             <a href=""><li>QUIZ</li></a>
-            <a href=""><li>PREDICTIONS</li></a>
+            <a href=""><li>EVENTS</li></a>
             <a href=""><li>BLOG</li></a>
-            <a href=""><li>CONTACT</li></a>
         </ul>
     </nav>
 </header>
