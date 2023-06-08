@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     'members.apps.MembersConfig',
     'blog',
-    'stats'
+    'stats',
     'homepage',
     'events',
     'aboutpage'

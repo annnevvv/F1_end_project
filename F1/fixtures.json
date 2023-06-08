@@ -1,110 +1,528 @@
 [
   {
-    "model": "blog.author",
+    "model": "auth.permission",
     "pk": 1,
     "fields": {
-      "f_name": "Dariusz",
-      "l_name": "Nowosielski",
-      "pseudonym": "Dareczek",
-      "email": "dnowosielski@noreply.com"
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
     }
   },
   {
-    "model": "blog.author",
+    "model": "auth.permission",
     "pk": 2,
     "fields": {
-      "f_name": "Maciej",
-      "l_name": "Wesolowski",
-      "pseudonym": "Wesolek",
-      "email": "Mwesolowski@noreply.com"
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
     }
   },
   {
-    "model": "blog.tag",
-    "pk": 1,
-    "fields": {
-      "caption": "new"
-    }
-  },
-  {
-    "model": "blog.tag",
-    "pk": 2,
-    "fields": {
-      "caption": "hot"
-    }
-  },
-  {
-    "model": "blog.tag",
+    "model": "auth.permission",
     "pk": 3,
     "fields": {
-      "caption": "f1"
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
     }
   },
   {
-    "model": "blog.tag",
+    "model": "auth.permission",
     "pk": 4,
     "fields": {
-      "caption": "#FormulaOne"
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
     }
   },
   {
-    "model": "blog.tag",
+    "model": "auth.permission",
     "pk": 5,
     "fields": {
-      "caption": "#SpeedThrills"
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
     }
   },
   {
-    "model": "blog.tag",
+    "model": "auth.permission",
     "pk": 6,
     "fields": {
-      "caption": "#F1Racing"
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
     }
   },
   {
-    "model": "blog.post",
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+      "fields": {
+        "name": "Can view tag",
+        "content_type": 8,
+        "codename": "view_tag"
+      }
+    },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add post",
+      "content_type": 9,
+      "codename": "add_post"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change post",
+      "content_type": 9,
+      "codename": "change_post"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete post",
+      "content_type": 9,
+      "codename": "delete_post"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view post",
+      "content_type": 9,
+      "codename": "view_post"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add comment",
+      "content_type": 10,
+      "codename": "add_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change comment",
+      "content_type": 10,
+      "codename": "change_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete comment",
+      "content_type": 10,
+      "codename": "delete_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view comment",
+      "content_type": 10,
+      "codename": "view_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add circuit",
+      "content_type": 11,
+      "codename": "add_circuit"
+    },
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add author",
+      "content_type": 7,
+      "codename": "add_author"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change author",
+      "content_type": 7,
+      "codename": "change_author"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete author",
+      "content_type": 7,
+      "codename": "delete_author"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view author",
+      "content_type": 7,
+      "codename": "view_author"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add tag",
+      "content_type": 8,
+      "codename": "add_tag"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change tag",
+      "content_type": 8,
+      "codename": "change_tag"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete tag",
+      "content_type": 8,
+      "codename": "delete_tag"
+    },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+
+  },
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  }
+  },
+  {
+    "model": "auth.user",
     "pk": 1,
     "fields": {
-      "title": "The Game-Changer: The Role of Artificial Intelligence in Formula One",
-      "excerpt": "Formula One (F1) has always been at the forefront of technological advancements in the automotive industry. One such advancement that has revolutionized the sport is the integration of Artificial Intelligence (AI)",
-      "image": "posts/general-artificial-intelligenc-2.jpg",
-      "date": "2023-06-01",
-      "txt": "ormula One (F1) has always been at the forefront of technological advancements in the automotive industry. One such advancement that has revolutionized the sport is the integration of Artificial Intelligence (AI). In this blog post, we will explore the significant role that AI plays in enhancing performance, safety, and overall race experience in Formula One.\r\n\r\nEnhanced Performance through Data Analysis (Approximately 150 words):\r\nFormula One teams heavily rely on AI to process and analyze vast amounts of data collected during races and testing sessions. AI algorithms are capable of quickly identifying patterns and correlations in the data, providing teams with valuable insights to optimize their car's performance. From tire wear and fuel consumption to aerodynamics and suspension settings, AI helps teams make informed decisions that can shave off valuable milliseconds from lap times.\r\n\r\nFurthermore, AI assists in simulating race scenarios and predicting outcomes. Using historical data, AI algorithms can model various race strategies and determine the most effective approach. This predictive capability allows teams to devise strategies that maximize their chances of success, including pit-stop timings, tire changes, and overtaking opportunities.\r\n\r\nSafety Innovations (Approximately 150 words):\r\nAI plays a crucial role in ensuring the safety of drivers and spectators in Formula One. Advanced AI algorithms analyze real-time data from sensors installed on the cars to detect potential hazards and alert drivers or race control. For instance, AI can identify abrupt changes in tire pressure or temperature, signaling a potential blowout and enabling drivers to take preventive action.\r\n\r\nAdditionally, AI-driven computer vision systems enhance safety by monitoring driver behavior and detecting signs of fatigue or distraction. By analyzing eye movements and body language, AI can identify potential risks and alert the driver or race officials accordingly.\r\n\r\nThe Role of AI in Fan Experience (Approximately 150 words):\r\nArtificial Intelligence has also transformed the fan experience in Formula One. With the help of AI algorithms, broadcasters can provide viewers with real-time insights, race analysis, and detailed statistics. AI-powered graphics and overlays provide fans with enhanced visualizations, highlighting crucial aspects of the race, such as overtakes, pit stops, and fastest laps.\r\n\r\nMoreover, AI algorithms analyze social media conversations and sentiment to gauge fan reactions and preferences. This information helps organizers tailor their content and engagement strategies, providing a more personalized experience to fans. AI-powered chatbots also enable fans to interact with their favorite teams and drivers, offering updates, trivia, and even answering queries.",
-      "slug": "the-game-changer-the-role-of-artificial-intelligen",
-      "author": 2,
-      "tags": [
-        1,
-        2,
-        3
-      ]
+      "password": "pbkdf2_sha256$600000$dEYJw9qrIm0WTMrTwqCQTg$ZIVQ/IOO1qByAciMgHYJnLfPRovnnpAGo/wwRoU8bow=",
+      "last_login": "2023-06-06T14:49:23.254Z",
+      "is_superuser": false,
+      "username": "Tim123",
+      "first_name": "",
+      "last_name": "",
+      "email": "tim@op.pl",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-06-06T14:18:40.550Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$gI0NDNx0MhoZAXKQSCtARh$sbt5776znw4Y7n32SKXzm8j/Rf1fEH6vRw7QCVP3+10=",
+      "last_login": "2023-06-06T15:20:48.522Z",
+      "is_superuser": true,
+      "username": "exit",
+      "first_name": "",
+      "last_name": "",
+      "email": "exit@op.pl",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-06-06T15:20:40.261Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "blog",
+      "model": "author"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "blog",
+      "model": "tag"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "blog",
+      "model": "post"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "blog",
+      "model": "comment"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "events",
+      "model": "circuit"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "events",
+      "model": "participant"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "events",
+      "model": "event"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "tylwmfaxct2ehbwtuqwpkuu09wr6nrut",
+    "fields": {
+      "session_data": ".eJxVjEsOwjAMBe-SNYrqtE4Uluw5Q2THDi2gROpnhbg7VOoCtm9m3ssk2tYxbYvOaRJzNs6cfjem_NC6A7lTvTWbW13nie2u2IMu9tpEn5fD_TsYaRm_dedcJGQMfugFouYQPANHgAJK3cC9IpJgBx4DCzjppQDq4GLRHMm8P8vyN8Q:1q6YUK:3OhwK5IpUW3zngEUenz9YOiUU9Et6Nguw47uqR0J8-A",
+      "expire_date": "2023-06-20T15:20:48.627Z"
     }
   },
   {
     "model": "blog.post",
     "pk": 2,
     "fields": {
-      "title": "The Need for Speed: Exploring the Thrilling World of Formula One",
-      "excerpt": "Formula One (F1) is the pinnacle of motorsport, captivating audiences around the world with its high-speed races, cutting-edge technology, and fierce competition. In this blog post, we will delve into the exhilarating world of Formula One, exploring",
-      "image": "posts/bitcoin.jpg",
-      "date": "2023-06-01",
-      "txt": "Formula One has a rich history that dates back to 1950 when the FIA (F�d�ration Internationale de l'Automobile) organized the first World Championship. Since then, the sport has evolved into a global phenomenon, with legendary drivers and iconic teams leaving their mark on its history. From the dominance of Juan Manuel Fangio and Ayrton Senna to the recent battles between Lewis Hamilton and Sebastian Vettel, Formula One has seen some of the greatest drivers in the world push the boundaries of speed and skill.\r\n\r\nEngineering Marvels: The Formula One Cars (Approximately 150 words):\r\nAt the heart of Formula One lies the engineering marvels that are the racing cars. These technological masterpieces are the result of relentless innovation and advancements in aerodynamics, materials, and powertrains. From carbon-fiber monocoques to hybrid power units, Formula One cars represent the cutting edge of automotive engineering.\r\n\r\nAerodynamics play a pivotal role in enhancing performance, with teams investing heavily in wind tunnel testing and computational fluid dynamics (CFD) simulations to optimize their car's aerodynamic efficiency. Additionally, advancements in power unit technology, including hybrid systems and energy recovery, have significantly improved the power-to-weight ratios, making the cars faster and more fuel-efficient.\r\n\r\nThe Pursuit of Speed \r\nSpeed is the essence of Formula One, and every aspect of the sport revolves around achieving the highest speeds possible. From the design of the circuits to the selection of tires and the strategic decisions made during races, everything is geared towards maximizing speed and performance.\r\n\r\nTeams meticulously analyze data from testing sessions and races, fine-tuning their cars for optimal speed on different track configurations. Engineers focus on reducing weight, improving aerodynamics, and fine-tuning suspension setups to extract every ounce of performance from the cars.\r\n\r\nIn the quest for speed, Formula One drivers push themselves to the limit, demonstrating extraordinary skill and bravery. The physical and mental demands of driving at speeds exceeding 200 mph require exceptional reflexes, concentration, and stamina.\r\n\r\nA Global Spectacle \r\nFormula One is not just a sport; it is a global spectacle that brings together fans from all corners of the world. The sport's appeal lies in its ability to combine thrilling races with a glamorous atmosphere. From iconic venues like Monaco and Silverstone to the electric atmosphere at races like Monza and Singapore, Formula One offers a unique blend of adrenaline-pumping action and luxurious entertainment.",
-      "slug": "the-need-for-speed-exploring-the-thrilling-world-o",
-      "author": 1,
-      "tags": [
-        4,
-        5,
-        6
-      ]
-    }
-  },
-  {
-    "model": "blog.comment",
-    "pk": 1,
-    "fields": {
-      "user_name": "Dareczek",
-      "user_email": "darek@noreply.com",
-      "txt": "To jest smiesznexD",
-      "post": 1
+      "title": "Tutu� innego posta",
+      "excerpt": "jkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duob",
+      "image": "",
+      "date": "2023-06-06",
+      "txt": "jkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duobjkbxdbgvixdru;gb;udrbgubr;duob",
+      "slug": "a-a",
+      "user": 1,
+      "author": null,
+      "tags": []
     }
   }
 ]
