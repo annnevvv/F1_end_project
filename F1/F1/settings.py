@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'crispy_forms',
     "crispy_bootstrap5",
+
     'members.apps.MembersConfig',
+
     'blog',
     'stats',
     'homepage',
@@ -95,7 +98,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'formula1',
         'USER': 'root',
-        'PASSWORD': 'Wiktoria23!',
+        'PASSWORD': 'Dareczek123',
         'HOST': 'localhost',
         'PORT': '3306',
     },
@@ -148,6 +151,6 @@ MEDIA_URL = "/files/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_REDIRECT_URL = '/homepage'
 
 LOGOUT_REDIRECT_URL = '/homepage'

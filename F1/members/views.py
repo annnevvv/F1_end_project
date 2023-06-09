@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 from .forms import RegistrationForm
 from blog.models import Post
@@ -18,6 +18,7 @@ def memberRegisterConfirmation(request):
 
 
 @login_required(login_url='/login')
+@permission_required('blog.delete_post', login_url='/login', raise_exception=True)
 def memberDashboard(request):
     posts = Post.objects.all()
 
