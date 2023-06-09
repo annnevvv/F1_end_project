@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Quiz, UserResponse, Choice, Question
 
-class QuizListView(LoginRequiredMixin, View):
+class QuizListView(View):
     def get(self, request):
         quizzes = Quiz.objects.all()
         return render(request, 'quiz/quiz_list.html', {'quizzes': quizzes})
 
-class QuizDetailView(LoginRequiredMixin, View):
+class QuizDetailView(View):
     def get(self, request, quiz_id):
         quiz = Quiz.objects.get(id=quiz_id)
         questions = Question.objects.filter(quiz=quiz)
