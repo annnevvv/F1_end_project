@@ -6,10 +6,6 @@ import requests
 # Create your views here.
 
 
-# def homepage(request):
-#     return render(request, 'homepage/homepage.html')
-
-
 def homePage(request):
     """Weather API for City race"""
 
