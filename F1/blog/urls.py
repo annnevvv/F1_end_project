@@ -7,7 +7,6 @@ from .views import BlogMainPageView, AllPostView, SinglePostView, createPost, cr
 urlpatterns = [
     path('', BlogMainPageView.as_view(), name='blog_main_page'),
     path('posts', AllPostView.as_view(), name='posts_list'),
-<<<<<<<<< Temporary merge branch 1
     path("posts/<slug:slug>", SinglePostView.as_view(), name='post-detail-page'),
     path('create-post', createPost, name='create_post'),
     path('create-post-confirmation', createPostConfirmation, name='create_post_confirmation'),
