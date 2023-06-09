@@ -20,6 +20,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 urlpatterns = [
+<<<<<<<<< Temporary merge branch 1
                   path('admin/', admin.site.urls),
                   path('', include('django.contrib.auth.urls')),
                   path('blog/', include('blog.urls'), name='blog'),
@@ -28,6 +29,15 @@ urlpatterns = [
                   path('stats/', include('blog.urls'), name='stats'),
                   path('events/', include('events.urls'), name='events'),
                   path('members/', include('members.urls'), name='members'),
-                  path('about/', include('aboutpage.urls'), name='about'),
-                  path('stats/', include('stats.urls'), name='stats'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+=========
+    path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls'), name='blog'),
+    path('', include('blog.urls'), name='homepage'),
+    path('quiz/',include('blog.urls'), name='quiz'),
+    path('users/', include('blog.urls'), name='users'),
+    path('stats/',include('stats.urls'), name='stats')
+]
+
+
+>>>>>>>>> Temporary merge branch 2

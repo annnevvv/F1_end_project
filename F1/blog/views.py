@@ -3,7 +3,7 @@ from django.views import View
 from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 from .models import Post
 from .forms import CommentForm, PostCreatedForm
@@ -112,6 +112,7 @@ class PostsStorageView(View):
 
 
 @login_required(login_url='/login')
+@permission_required("blog.add_post", login_url='/login', raise_exception=True)
 def createPost(request):
     if request.method == 'POST':
         form = PostCreatedForm(request.POST)
@@ -119,7 +120,7 @@ def createPost(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            return redirect('create_post_confirmation')
+            return redirect('dashboard')
     else:
         form = PostCreatedForm()
 

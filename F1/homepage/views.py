@@ -2,6 +2,9 @@ from django.shortcuts import render
 import datetime
 import requests
 
+from stats.models import Circuits
+from stats.function_next_race import nextRace
+
 
 # Create your views here.
 
@@ -9,7 +12,9 @@ import requests
 def homePage(request):
     """Weather API for City race"""
 
-    CITY_RACE = 'warsaw'
+    upcoming_races = Circuits.get_upcoming_races()
+    CITY_RACE = nextRace(upcoming_races)[0]
+
 
     appid = '490aa8f1a63ecf555ff9a003341030cf'
     URL = 'https://api.openweathermap.org/data/2.5/weather'
@@ -18,7 +23,7 @@ def homePage(request):
     res = requ.json()
 
     context = {
-        'city': 'next_race in ...',
+        'city': CITY_RACE,
         'icon': res['weather'][0]['icon'],
         'description': res['weather'][0]['description'],
         'temp': res['main']['temp'],
