@@ -55,10 +55,8 @@ text-align: center;
 
 #image {
   max-width: 50%;
-}
-
-#image-two {
-  max-width: 50%;
+  border-radius: 12px;
+  border: 5px solid white;
 }
 
 #content {
