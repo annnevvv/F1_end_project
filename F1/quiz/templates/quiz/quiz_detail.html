@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+THE ULTIMATE F1 QUIZ
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'quiz/quiz-detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+<article>
+<h1>{{ quiz.title }}</h1>
+<p>{{ quiz.description }}</p>
+
+<form method="POST" action="{% url 'submit_quiz' quiz.id %}">
+  {% csrf_token %}
+  {% for question in questions %}
+    <h3>{{ question.question_text }}</h3>
+  <ul>
+      {% for choice in question.choice_set.all %}
+      <li><input type="radio" name="{{ question.id }}" value="{{ choice.id }}">
+          {{ choice.choice_text }}</li>
+      {% endfor %}
+  </ul>
+  {% endfor %}
+  <button type="submit" class="submit-button">Submit</button>
+</form>
+</article>
+{% endblock %}

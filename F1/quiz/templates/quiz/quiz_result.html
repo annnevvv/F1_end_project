@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+QUIZ RESULT
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'quiz/quiz-result.css' %}" />
+{% endblock %}
+
+{% block content %}
+<article>
+<h1>Quiz Result</h1>
+<h2>Score: {{ score }}/{{ total_questions }}</h2>
+<div class="feedback">
+  {{ feedback }}
+</div>
+
+<h3>Your Answers:</h3>
+<ul>
+  {% for user_response in user_responses %}
+    <li>{{ user_response.question.question_text }} - Your answer: {{ user_response.choice.choice_text }}</li>
+  {% endfor %}
+</ul>
+
+<h3>Correct Answers:</h3>
+<ul>
+  {% for user_response in user_responses %}
+    <li>{{ user_response.question.question_text }} - Correct answer:
+      {% for choice in user_response.question.choice_set.all %}
+        {% if choice.is_correct %}
+          {{ choice.choice_text }}
+        {% endif %}
+      {% endfor %}
+    </li>
+  {% endfor %}
+</ul>
+</article>
+{% endblock %}

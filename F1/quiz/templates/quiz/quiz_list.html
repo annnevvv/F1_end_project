@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+THE F1 QUIZ
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'quiz/quiz.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="about-quiz">
+    <h2>Formula 1 Quiz</h2>
+    <h3 align="center">How well do you know the Queen of Motorsports?</h3>
+    <p align="center">Face Our Challenge!</p>
+</div>
+
+<div id="list-quiz">
+<ol>
+  {% for quiz in quizzes %}
+    <a href="{% url 'quiz_detail' quiz.id %}" class="quiz-button">TAKE THE QUIZ</a>
+  {% endfor %}
+</ol>
+</div>
+{% endblock %}
