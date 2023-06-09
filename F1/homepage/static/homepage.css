@@ -123,6 +123,7 @@ justify-content: center;
 gap: 30px;
   max-width: 1080px;
   border-collapse: collapse;
+  margin-bottom: 40px;
 }
 
 .weather th,

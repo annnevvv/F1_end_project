@@ -9,7 +9,7 @@ from django.db import models
 class Author(models.Model):
     f_name = models.CharField(max_length=30)
     l_name = models.CharField(max_length=30)
-    pseudonym = models.CharField(max_length=30, null=True)
+    pseudonym = models.CharField(max_length=30)
     email = models.EmailField(max_length=254)
 
     def full_name(self):
@@ -32,19 +32,19 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=150)
     excerpt = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='posts', null=True,
-                              default='posts/F1.png')
+    image = models.ImageField(upload_to='posts',
+                              default='posts/F1.png', null=True)
     date = models.DateField(auto_now=True)
     txt = models.TextField(
         validators=[MinLengthValidator(200), MaxLengthValidator(3000)])
-    slug = models.SlugField(unique=False, null=False)
+    slug = models.SlugField(unique=True, db_index=True)
     user = models.ForeignKey(
-        User, blank=True, null=True, on_delete=models.CASCADE,
+        User, on_delete=models.CASCADE,
         related_name='posts')
     author = models.ForeignKey(
-        Author, blank=True, null=True, on_delete=models.CASCADE,
+        Author, null=True, on_delete=models.SET_NULL,
         related_name='posts')
-    tags = models.ManyToManyField(Tag, null=True, blank=True)
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.slug

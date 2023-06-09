@@ -34,15 +34,20 @@ display: flex;
   color: white;
 }
 
-#about-us {
+#our-team {
+margin: 40px 0 20px 0;
+}
+
+#our-team h2 {
+text-align: center;
+}
+
+.about-us {
   box-sizing: border-box;
-  align-content: center;
-  align-items: center;
   max-width: 100%;
   background-color: rgba(155, 155, 155);
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 30px;
   margin-top: 30px;
   border: 3px solid red;
   padding: 20px;
@@ -63,26 +68,36 @@ display: flex;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0px 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 
-#about-us h2 {
+.about-us h2 {
   font-size: 24px;
   margin-bottom: 10px;
   color: red;
 }
 
-#about-us h3 {
+.about-us h3 {
   font-size: 18px;
   color: white;
   margin-bottom: 20px;
 }
 
-#about-us p {
+.about-us p {
   font-size: 16px;
   line-height: 1.5;
   color: white;
+}
+
+#sum-up {
+  margin: 50px 0 100px 0;
+}
+
+#sum-up h3 {
+text-align: center;
 }
 
 .box-container {
