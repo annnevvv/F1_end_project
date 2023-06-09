@@ -1,3 +1,3 @@
 host='localhost'
 user='root'
-password='ania123!'
+password='Ania123!'

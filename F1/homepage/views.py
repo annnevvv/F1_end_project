@@ -27,7 +27,7 @@ def homePage(request):
     res = requ.json()
 
     context = {
-        'city': 'next_race in ...',
+        'city': CITY_RACE,
         'icon': res['weather'][0]['icon'],
         'description': res['weather'][0]['description'],
         'temp': res['main']['temp'],

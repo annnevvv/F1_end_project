@@ -11,7 +11,7 @@ from django.shortcuts import render
 
 upcoming_races = Circuits.get_upcoming_races()
 
-def nextRace():
+def nextRace(upcoming_races):
 
     for race in upcoming_races:
             return (race.city, race.time)
