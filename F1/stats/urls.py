@@ -1,7 +1,7 @@
-from django.contrib import admin
+from django.conf import settings
 from django.urls import path
 from stats.views import constructors, circuits, drivers, driver_results, driver_standings,upcoming_races_view, constructor_standings
-
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', driver_results, name='driver-results-list'),
@@ -13,4 +13,4 @@ urlpatterns = [
     path('constructor_standings/', constructor_standings, name='constructor_standings'),
     path('upcoming_races/', upcoming_races_view, name='upcoming_races')
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
