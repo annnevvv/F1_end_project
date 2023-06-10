@@ -5,22 +5,16 @@
   background-color: white;
   padding: 2rem;
   border-radius: 12px;
-  width: 60rem;
+  max-width: 1080px;
   margin: 4rem auto 2rem auto;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (min-width: 780px) {
-    .latest-posts {
-        flex-wrap: wrap;
-        flex-direction: row;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .latest-posts {
-        flex-wrap: nowrap;
-    }
+@media screen and (max-width: 780px) {
+  #latest-posts {
+    width: auto;
+    padding: 1rem;
+  }
 }
 
 #latest-posts h2 {
@@ -32,7 +26,8 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #latest-posts li {
@@ -40,19 +35,42 @@
 }
 
 #about {
-    text-align: center;
-    padding: 3rem;
-    background-color: rgb(150, 150, 150);
-    margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgb(150, 150, 150);
+  margin-top: 20px;
+  margin-bottom: 55px;
+  border-bottom: 3px solid black;
 }
 
 #about h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 30px;
+  color: red;
 }
 
 #about p {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 20px;
   color: #353535;
+}
+
+.posts-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-color: red;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  width: 20rem;
+  margin: 20px;
+}
+
+.posts-button:hover {
+  background-color: rgb(155, 0, 0, 0.7);
+  border-color: rgb(155, 0, 0, 0.7);
 }

@@ -3,15 +3,16 @@ body {
 }
 
 #summary {
+  display: flex;
+  flex-direction: column;
   margin: 4rem auto 3rem auto;
   padding: 1rem;
   width: 75%;
   max-width: 70rem;
   border-radius: 16px;
   background-color: rgb(255, 0, 0, 0.75);
-  position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 20rem;
+  height: 30rem;
 }
 
 #summary h2 {
@@ -21,9 +22,10 @@ body {
 }
 
 #summary article {
-  position: absolute;
-  top: 2rem;
-  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding: 1rem 2rem;
   border-radius: 12px;
   text-align: right;
@@ -31,10 +33,11 @@ body {
 }
 
 #summary article img {
-  width: 10rem;
-  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  width: 13rem;
+  height: 13rem;
   border-radius: 12px;
-  transform: rotateZ(5deg);
   border: 5px solid white;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -51,25 +54,6 @@ text-decoration: none;
 
 #summary time {
   font-weight: bold;
-}
-
-#read-later {
-margin: 2rem 0;
-}
-
-#read-later button {
-background-color: transparent;
-border: 1px solid white;
-padding: 0.5rem 2rem;
-font: inherit;
-color: white;
-cursor: pointer;
-}
-
-#read-later button:hover,
-#read-later button:active {
-background-color: white;
-color: #390281;
 }
 
 main {
@@ -198,3 +182,42 @@ border-bottom: none;
 #comments h2 {
 color: #464646;
 }
+
+@media (max-width: 768px) {
+  #summary {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem;
+  }
+
+  #summary article {
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  #summary article img {
+    width: 6rem;
+    height: 6rem;
+    margin: 1.5rem 0;
+  }
+
+  #summary address {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1280px) {
+  #summary {
+    height: auto;
+    padding: 2rem;
+  }
+   #summary article img {
+    width: 10rem;
+    height: 10rem;
+    margin: 1.5rem 0;
+  }
+}
+
+
+
