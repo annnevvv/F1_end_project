@@ -11,23 +11,24 @@ F1 DRIVER STANDINGS 2023
 
 {% block content %}
 <section class="constructors">
-<h1>Constructor Standings 2023 after {{ race.count }} races</h1>
+<h1>Constructor Standings 2023 after {{ race_no }} races</h1>
 <table>
     <thead>
         <tr>
             <th id="standings">Standings</th>
+            <th id="constructor">Constructors</th>
             <th id="points">Points</th>
             <th id="wins">Wins</th>
-            <th id="constructor">Constructors</th>
+
         </tr>
     </thead>
     <tbody>
         {% for standing in standings|dictsortreversed:"points" %}
         <tr>
             <td id="standings">{{ forloop.counter }}</td>
+            <td id="constructor">{{ standing.constructorid.name }}</td>
             <td id="points">{{ standing.points }}</td>
             <td id="wins">{{ standing.wins }}</td>
-            <td id="constructor">{{ standing.constructorid.constructorid }}</td>
         </tr>
         {% endfor %}
     </tbody>
