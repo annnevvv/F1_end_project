@@ -46,9 +46,7 @@ INSTALLED_APPS = [
     'blog',
     'homepage',
     'events',
-    'stats',
-
-
+    'quiz',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

@@ -1,15 +1,16 @@
-#all-events {
+#about-quiz {
 width: 100%;
-background-color: red;
+background-color: rgb(150, 150, 150, 0.7);
 color: white;
 padding: 1rem;
 }
 
-#all-events h2 {
+#about-quiz h2 {
 text-align: center;
+color: red;
 }
 
-#list-events {
+#list-quiz {
   max-width: 40rem;
   margin: 3rem auto;
 }
@@ -20,7 +21,7 @@ ol {
   padding: 0;
 }
 
-.event-item {
+.quiz-item {
   margin: 1rem 0;
   background-color: rgba(0, 0, 0, 0.25);
   border: 3px solid red;
@@ -29,7 +30,7 @@ ol {
   border-radius: 4px;
 }
 
-.event-summary {
+.quiz-summary {
   display: flex;
   align-items: flex-start;
 }
@@ -38,7 +39,7 @@ ol {
   margin-right: 2rem;
 }
 
-.event-image img {
+.quiz-image img {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
@@ -46,23 +47,26 @@ ol {
   background-size: contain;
 }
 
-.event-details h3 {
+.quiz-details h3 {
   color: inherit;
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 2rem;
 }
 
-.event-details address {
+.quiz-details address {
   font-style: italic;
 }
 
-.event-actions {
+.quiz-actions {
   margin-top: 1.5rem;
   text-align: right;
 }
 
-.event-actions .btn {
+.quiz-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: red;
   border-color: red;
   color: white;
@@ -70,7 +74,7 @@ ol {
   text-decoration: none;
 }
 
-.event-actions .btn:hover {
+.quiz-button:hover {
   background-color: rgb(155, 0, 0, 0.7);
   border-color: rgb(155, 0, 0, 0.7);
 }
