@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block title %}
-F1 DRIVER STANDINGS 2023
+F1 CONSTRUCTOR STANDINGS 2023
 {% endblock %}
 
 {% block css_files %}
-<link rel="stylesheet" href="{% static 'stats/constructors.css' %}" />
+<link rel="stylesheet" href="{% static 'stats/constructor_standings.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@ F1 DRIVER STANDINGS 2023
             <td id="standings">{{ forloop.counter }}</td>
             <td id="points">{{ standing.points }}</td>
             <td id="wins">{{ standing.wins }}</td>
-            <td id="constructor">{{ standing.constructorid.constructorid }}</td>
+            <td id="constructor">{{ standing.constructorid.name }}</td>
         </tr>
         {% endfor %}
     </tbody>

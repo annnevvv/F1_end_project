@@ -1,21 +1,34 @@
-<h1>Drivers List</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+F1 DRIVERS 2023
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'stats/drivers.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="drivers">
+<h1>LIST OF DRIVERS IN 2023</h1>
 <table>
     <thead>
         <tr>
-            <th>Driver ID</th>
-            <th>Driver</th>
-            <th>Country</th>
-            <th>Constructor ID</th>
+            <th id="driver">Driver</th>
+            <th id="country">Country</th>
+            <th id="constructor">Constructor</th>
         </tr>
     </thead>
     <tbody>
     {% for driver in drivers %}
         <tr>
-            <td>{{ driver.driverid }}</td>
-            <td>{{ driver.driver }}</td>
-            <td>{{ driver.country }}</td>
-            <td>{{ driver.constructorid.constructorid }}</td>
+            <td id="driver">{{ driver.driver }}</td>
+            <td id="country">{{ driver.country }}</td>
+            <td id="constructor">{{ driver.constructorid.constructorid }}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
+</section>
+{% endblock %}

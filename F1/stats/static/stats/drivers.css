@@ -26,32 +26,20 @@ table {
   margin-bottom: 40px;
 }
 
-#standings {
-    width: 110px;
-    margin: 20px;
-    padding: 8px;
-}
-
-#points {
-    width: 100px;
-    margin: 20px;
-    padding: 8px;
-}
-
-#wins {
-    width: 90px;
-    margin: 20px;
-    padding: 9px;
-}
-
 #driver {
     width: 170px;
     margin: 20px;
     padding: 8px;
 }
 
+#country {
+    width: 150px;
+    margin: 20px;
+    padding: 9px;
+}
+
 #constructor {
-    width: 140px;
+    width: 150px;
     margin: 20px;
     padding: 8px;
 }

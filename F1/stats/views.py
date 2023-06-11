@@ -18,7 +18,7 @@ def circuits(request):
 
 
 def driver_standings(request):
-    standings = DriverStandings.objects.all()
+    standings = DriverStandings.objects.select_related('constructorid').all()
     return render(request, 'driver_standings.html', {'standings': standings})
 
 def constructor_standings(request):
