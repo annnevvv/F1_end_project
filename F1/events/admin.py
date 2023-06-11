@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Circuit, Participant
+from .models import Event, Circuit
 
 # Register your models here.
 
@@ -11,4 +11,3 @@ from .models import Event, Circuit, Participant
 
 admin.site.register(Event)
 admin.site.register(Circuit)
-admin.site.register(Participant)
