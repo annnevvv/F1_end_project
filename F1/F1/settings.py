@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blog',
     'homepage',
     'events',
+    'stats',
     'quiz',
 ]
 
