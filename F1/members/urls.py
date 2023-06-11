@@ -7,8 +7,8 @@ urlpatterns = [
 
     path('', goToMemberRegister, name='go_to_register_or_login'),
     path('signup', signUp, name='sign_up'),
-    path('confirm-memeber-account-created', memberRegisterConfirmation,
-         name='confirm-memeber-account-created'),
+    path('confirm-member-account-created', memberRegisterConfirmation,
+         name='confirm-member-account-created'),
 
     path('password-change-done', auth_views.PasswordChangeDoneView.as_view(
         template_name='password-change-done.html')),

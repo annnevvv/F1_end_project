@@ -16,7 +16,7 @@ def goToMemberRegister(request):
 
 
 def memberRegisterConfirmation(request):
-    return render(request, 'members/main/confirm-memeber-account-created.html')
+    return render(request, 'members/main/confirm-member-account-created.html')
 
 
 @login_required(login_url='/login')
