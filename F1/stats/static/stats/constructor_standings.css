@@ -26,10 +26,28 @@ table {
   margin-bottom: 40px;
 }
 
-#constructor {
-    width: 200px;
+#standings {
+    width: 140px;
     margin: 20px;
-    padding: 20px;
+    padding: 8px;
+}
+
+#points {
+    width: 140px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#wins {
+    width: 140px;
+    margin: 20px;
+    padding: 9px;
+}
+
+#constructor {
+    width: 140px;
+    margin: 20px;
+    padding: 8px;
 }
 
 th, td {

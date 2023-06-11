@@ -45,7 +45,7 @@ class QuizSubmitView(View):
         elif score >= 9:
             feedback = "Nice job! You are definitely a F1 enthusiast! Keep up the good work!"
         elif score >= 5:
-            feedback = "Could be better! You know some facts about Formula One, but it's not you favorite sport!"
+            feedback = "Could be better! You know some facts about Formula One, but it's not your favorite sport!"
         else:
             feedback = "Truly catastrophic result! Have you ever heard about F1 or even watched a single race?"
 

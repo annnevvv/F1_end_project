@@ -1,15 +1,30 @@
-<h1>Constructors List</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+F1 CONSTRUCTORS 2023
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'stats/constructors.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="constructors">
+<h1>LIST OF CONSTRUCTORS IN 2023</h1>
 <table>
     <thead>
         <tr>
-            <th>Name</th>
+            <th id="constructor">NAME</th>
         </tr>
     </thead>
     <tbody>
     {% for constructor in constructors %}
         <tr>
-            <td>{{ constructor.name }}</td>
+            <td id="constructor">{{ constructor.name }}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
+</section>
+{% endblock %}
