@@ -1,7 +1,32 @@
-<h1>Account Created<h1>
+{% extends "base.html" %}
+{% load static %}
 
-    <div>
-        <a href="{% url 'homepage' %}">HOME PAGE</a>
-        <p></p>
-        <a href="{% url 'login' %}">LOGIN</a>
-    </div>
+{% block title %}Account Created{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'members.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+
+
+<article class="container"> 
+<h2>Yes! We have it!<h2>
+<h1>Account Created</h1>
+<p>You made your first step</p>    
+<p>What next?<p>
+    <section>
+        <div class="welcome-container">
+            <a href="{% url 'homepage' %}" class="signup-link">homepage</a>
+        </div>
+        <div class="welcome-container">
+            <a href="{% url 'login' %}" class="signup-link">login</a>
+        </div>
+    </section>
+</article>
+
+
+{% endblock %}
+
+{% block footer %} {% endblock %}
