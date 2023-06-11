@@ -1,4 +1,29 @@
-<h1>Your Post is publish</h1>
+{% extends "base.html" %}
+{% load static %}
 
-<a href="{% url 'dashboard' %}">HOME PAGE</a>
-<a href="{% url 'homepage' %}">HOME PAGE</a>
+{% block title %}Account Created{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'members.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<article class="container"> 
+<h2>Yes! We have it!<h2>
+<h1>Post Created Created</h1>  
+<p>What next?<p>
+    <section>
+        <div class="welcome-container">
+            <a href="{% url 'homepage' %}" class="signup-link">homepage</a>
+        </div>
+        <div class="welcome-container">
+            <a href="{% url 'member_dashboard' %}" class="signup-link">dashboard</a>
+        </div>
+    </section>
+</article>
+
+
+{% endblock %}
+
+{% block footer %} {% endblock %}
