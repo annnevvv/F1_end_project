@@ -1,8 +1,8 @@
- {% if circuitid|length == 2 %}
-        <h1>Drivers Results in {{ circuit_name }} sprint</h1>
-    {% else %}
-        <h1>Drivers Results in {{ circuit_name }}</h1>
-    {% endif %}
+{% if circuitid|length == 2 %}
+    <h1>Drivers Results in {{ circuit.name }} sprint</h1>
+{% else %}
+    <h1>Drivers Results in {{ circuit.name }}</h1>
+{% endif %}
     <table>
         <thead>
             <tr>

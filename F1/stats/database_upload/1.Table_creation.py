@@ -97,7 +97,9 @@ CREATE TRIGGER wins after insert on drivers_results for each row
 BEGIN
 	update driver_standings ds
 inner join (
-	select driverID, sum(position = 1) as wins from drivers_results group by driverID
+	select driverID, sum(position = 1) as wins from drivers_results
+	 WHERE circuitID REGEXP '^[0-9]+$'
+	 group by driverID
 ) x on ds.driverID = x.driverID
 SET ds.wins = x.wins;
 END;"""
@@ -118,7 +120,9 @@ CREATE TRIGGER wins2 after insert on drivers_results for each row
 BEGIN
 	update constructor_standings cs
 inner join (
-	select constructorID, sum(position = 1) as wins from drivers_results group by constructorID
+	select constructorID, sum(position = 1) as wins from drivers_results
+	WHERE circuitID REGEXP '^[0-9]+$'
+	group by constructorID
 ) x on cs.constructorID = x.constructorID
 SET cs.wins = x.wins;
 END;"""
