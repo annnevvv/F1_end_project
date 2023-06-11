@@ -112,7 +112,8 @@ class PostsStorageView(View):
 
 
 @login_required(login_url='/login')
-@permission_required("blog.add_post", login_url='/dashboard', raise_exception=True)
+@permission_required("blog.add_post", login_url='/dashboard',
+                     raise_exception=True)
 def createPost(request):
     if request.method == 'POST':
         form = PostCreatedForm(request.POST)
