@@ -1,4 +1,12 @@
-.container {  
+article {
+margin-top: 40px;
+}
+
+article h1 {
+text-align: center;
+}
+
+.container {
   width: fit-content;
   margin:  auto;
   padding:  10px;
