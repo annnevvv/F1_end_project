@@ -44,7 +44,7 @@ def signUp(request):
             default_group = Group.objects.get(name='default')
             user.groups.add(default_group)
 
-            return redirect('confirm-memeber-account-create')
+            return redirect('confirm-member-account-created')
 
     else:
         form = RegistrationForm()

@@ -12,13 +12,28 @@ from stats.function_next_race import nextRace
 # def homepage(request):
 #     return render(request, 'homepage/homepage.html')
 
+def matchCitiesToApi(CITY_RACE):
+    match CITY_RACE:
+        case 'Sakhir':
+            return 'Awali'
+        case 'Losail':
+            return 'Doha'
+        case 'Miami, FL':
+            return 'Miami'
+        case 'Austin, TX':
+            return 'Austin'
+        case 'Las Vegas, NV':
+            return 'Las Vegas'
+        case whatever:
+            return CITY_RACE
+
 
 def homePage(request):
     """Weather API for City race"""
 
     upcoming_races = Circuits.get_upcoming_races()
     CITY_RACE = nextRace(upcoming_races)[0]
-
+    CITY_RACE = matchCitiesToApi(CITY_RACE)
 
     appid = '490aa8f1a63ecf555ff9a003341030cf'
     URL = 'https://api.openweathermap.org/data/2.5/weather'
@@ -38,8 +53,6 @@ def homePage(request):
         'wind': res['wind']['speed'],
         'deg': res['wind']['deg'],
         'clouds': res['clouds']['all'],
-        # 'rain': res['rain']['1h'], # if avidable
-        # 'snow': res['snow']['1h'], # if avidable
         'country': res['sys']['country'],
         'sunrise': res['sys']['sunrise'],
         'sunset': res['sys']['sunset'],
