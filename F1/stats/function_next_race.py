@@ -14,6 +14,6 @@ upcoming_races = Circuits.get_upcoming_races()
 def nextRace(upcoming_races):
 
     for race in upcoming_races:
-            return (race.city, race.time)
+            return (race.city, race.time, race.date)
 
 

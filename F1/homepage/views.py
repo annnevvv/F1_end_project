@@ -1,6 +1,9 @@
 from django.shortcuts import render
 import datetime
+from geopy.geocoders import Nominatim
+from timezonefinder import TimezoneFinder
 import requests
+from dateutil import tz
 
 from stats.models import Circuits
 from stats.function_next_race import nextRace
@@ -28,11 +31,41 @@ def matchCitiesToApi(CITY_RACE):
             return CITY_RACE
 
 
+def raceTime(city, day_race, time_race, timezone):
+    race_time = datetime.datetime.strptime(f"{day_race} {time_race}",
+                                           "%Y-%m-%d %H:%M:%S")
+
+    geolocator = Nominatim(user_agent="my-app")
+    location = geolocator.geocode(city)
+
+    tf = TimezoneFinder()
+    timezone_str = tf.timezone_at(lng=location.longitude,
+                                  lat=location.latitude)
+
+    if timezone_str is None:
+        raise ValueError(
+            "No match for timezone for that city")
+
+    city_timezone = tz.gettz(timezone_str)
+
+    race_time = race_time.replace(tzinfo=city_timezone)
+    local_race_time = race_time.astimezone(tz.tzlocal())
+
+    local_race_time += datetime.timedelta(seconds=timezone)
+    local_time = datetime.datetime.now(city_timezone)
+    time_difference = local_race_time - local_time
+
+    return (local_race_time, local_time, time_difference)
+
+
 def homePage(request):
     """Weather API for City race"""
 
     upcoming_races = Circuits.get_upcoming_races()
-    CITY_RACE = nextRace(upcoming_races)[0]
+    DATA_RACE = nextRace(upcoming_races)
+    CITY_RACE = DATA_RACE[0]
+    TIME_RACE = str(DATA_RACE[1])
+    DATE_RAVE = DATA_RACE[2]
     CITY_RACE = matchCitiesToApi(CITY_RACE)
 
     appid = '490aa8f1a63ecf555ff9a003341030cf'
@@ -40,6 +73,15 @@ def homePage(request):
     PARAMS = {'q': CITY_RACE, 'appid': appid, 'units': 'metric'}
     requ = requests.get(url=URL, params=PARAMS)
     res = requ.json()
+
+    SUN_RISE = int(res['sys']['sunrise'])
+    SUN_SET = int(res['sys']['sunset'])
+    TIMEZONE = res['timezone']
+
+    data = raceTime(CITY_RACE, DATE_RAVE, TIME_RACE, TIMEZONE)
+    LOCAL_CITY_TIME = data[0]
+    LOCAL_TIME = data[1]
+    TIME_DELTA = data[2]
 
     context = {
         'city': CITY_RACE,
@@ -57,7 +99,10 @@ def homePage(request):
         'sunrise': res['sys']['sunrise'],
         'sunset': res['sys']['sunset'],
         'timezone': res['timezone'],
-        'day': datetime.date.today()
+        'time_race': TIME_RACE,
+        'LOCAL_FOR_RACE': LOCAL_CITY_TIME,
+        'YOUR_LOCAL': LOCAL_TIME,
+        'DELTA': TIME_DELTA,
     }
 
     return render(request, 'homepage/homepage.html', context)

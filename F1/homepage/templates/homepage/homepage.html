@@ -66,7 +66,9 @@ THE F1NAL PROJECT
 <section class="background-section">
     <div class="container">
         <h2>TIME UNTIL NEXT RACE</h2>
-        <p>CLOCK COUNTDOWN IN HERE</p>
+        <p>LOCAL_FOR_RACE {{ LOCAL_FOR_RACE }}</p>
+        <p>YOUR_LOCAL {{ YOUR_LOCAL }}</p>
+        <p>DELTA {{ DELTA }}</p>
     </div>
 </section>
 
@@ -74,7 +76,6 @@ THE F1NAL PROJECT
     <div class="container">
         <h2>WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
         <div>
-
             <p>city {{ city }}</p>
             <img src="https://api.openweathermap.org/img/w/{{icon}}.png" width="30" alt="">
             <p>description {{ description }}</p>
@@ -89,9 +90,8 @@ THE F1NAL PROJECT
             <p>sunrise {{ sunrise }}</p>
             <p>sunset {{ sunset }}</p>
             <p>timezone {{ timezone }}</p>
-            <p>day {{ day }}</p>
-
-            </div>
+            <p>time {{ time_race }}</p>
+        </div>
     </div>
 </section>
 {% endblock %}
