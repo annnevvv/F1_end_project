@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Driver Standings Chart
+{% endblock %}
+
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'stats/chart.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h1></h1>
+        <h1>Driver Standings Chart</h1>
+          <canvas id="driverStandingsChart" ></canvas>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('driverStandingsChart').getContext('2d');
+        var driverIds = {{ driver_ids|safe }};
+        var points = {{ points|safe }};
+
+        var chartData = {
+            labels: driverIds,
+            datasets: [{
+                label: 'Points',
+                data: points,
+                backgroundColor: 'red',
+                borderColor: 'red',
+                borderWidth: 1
+            }]
+        };
+
+        var chartOptions = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: chartOptions
+        });
+    </script>
+{% endblock %}

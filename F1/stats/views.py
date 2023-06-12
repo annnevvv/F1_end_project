@@ -56,3 +56,19 @@ def upcoming_races_view(request):
     }
     return render(request, 'stats/upcoming_races.html', context)
 
+def driver_standings_chart(request):
+    driver_standings = DriverStandings.objects.all()
+
+    driver_ids = []
+    points = []
+
+    for standing in driver_standings:
+        driver_ids.append(standing.driverid.driver)
+        points.append(standing.points)
+
+    context = {
+        'driver_ids': driver_ids,
+        'points': points,
+    }
+
+    return render(request, 'stats/driver_standings_chart.html', context)
