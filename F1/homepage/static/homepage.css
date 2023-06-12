@@ -16,12 +16,17 @@ section {
     padding: 0 10px;
 }
 
+
 .container h1 {
     color: red;
 }
 
 .container h2 {
     color: red;
+}
+
+.float-container p {
+margin-bottom: 40px;
 }
 
 @media screen and (min-width: 780px) {

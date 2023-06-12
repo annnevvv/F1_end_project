@@ -42,7 +42,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE,
         related_name='posts')
     author = models.ForeignKey(
-        Author, null=True, on_delete=models.SET_NULL,
+        Author, on_delete=models.CASCADE, null=True,
         related_name='posts')
     tags = models.ManyToManyField(Tag, blank=True)
 
