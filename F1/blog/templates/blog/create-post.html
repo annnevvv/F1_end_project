@@ -1,13 +1,54 @@
-{% load crispy_forms_tags %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'login.css' %}" />
+{% endblock %}
+
+{% block content %}
 
 <h1>Create post</h1>
 
-<form method="POST">
 
-    {% csrf_token %}
+<article>
 
-    {{ form|crispy }}
+    <section class="container">
+        <form method="POST" enctype="multipart/form-data" class="form-shadow">
 
-    <button type="submit">CREATE POST</button>
+            {% csrf_token %}
 
-</form>
+            {{ form.title.label }}<br>
+            {{ form.title }} <br>
+            <p>Use max 150 signs</p>
+
+            {{ form.excerpt.label }}<br>
+            {{ form.excerpt }} <br>
+            <p>Use max 250 signs</p>
+
+            {{ form.txt.label }}<br>
+            {{ form.txt }} <br>
+            <p>Use between 200 and 3000 signs</p>
+
+            {{ form.slug.label }}<br>
+            {{ form.slug }} <br>
+            <p>Use something similar to title</p>
+
+            <button type="submit">CREATE POST</button>
+
+        </form>
+    </section>
+
+    <div class="signup-section">
+        <h3>Go to dashboard</h3>
+        <p></p>
+        <h2><a href="{% url 'member_dashboard' %}" class="signup-link" >dasboard</a></h2>
+    </div>
+
+</article>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

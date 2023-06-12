@@ -112,7 +112,8 @@ class PostsStorageView(View):
 
 
 @login_required(login_url='/login')
-@permission_required("blog.add_post", login_url='/login', raise_exception=True)
+@permission_required("blog.add_post", login_url='/dashboard',
+                     raise_exception=True)
 def createPost(request):
     if request.method == 'POST':
         form = PostCreatedForm(request.POST)
@@ -120,11 +121,12 @@ def createPost(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            return redirect('dashboard')
+            return redirect('create_post_confirmation')
     else:
         form = PostCreatedForm()
 
     return render(request, 'blog/create-post.html', {'form': form})
 
-def createPostConfirmation(request):
-    return render(request, 'blog/create-post-confirmation.html')
+
+def postCreatedConfirmation(request):
+    return render(request, 'blog/post-create-confirmation.html')

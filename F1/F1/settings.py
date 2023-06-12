@@ -44,10 +44,9 @@ INSTALLED_APPS = [
     'members.apps.MembersConfig',
 
     'blog',
-    'stats',
     'homepage',
     'events',
-    'aboutpage',
+    'stats',
     'quiz',
 ]
 
@@ -98,7 +97,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'formula1',
         'USER': 'root',
-        'PASSWORD': 'Wiktoria23!',
+        'PASSWORD': 'Ania123!',
         'HOST': 'localhost',
         'PORT': '3306',
     },
@@ -151,6 +150,6 @@ MEDIA_URL = "/files/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/homepage'
+LOGIN_REDIRECT_URL = '/members/dashboard'
 
 LOGOUT_REDIRECT_URL = '/homepage'

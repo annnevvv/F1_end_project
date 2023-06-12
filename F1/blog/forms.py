@@ -20,3 +20,13 @@ class PostCreatedForm(forms.ModelForm):
         model = Post
         fields = ['title', 'excerpt', 'txt', 'slug']
         # prepopulated = ['slug']
+
+        # def clean_slug(self):
+        #     slug = self.cleaned_data['slug']
+        #     if not slug:
+        #         title = self.cleaned_data['title']
+        #         slug = slugify(title)
+        #     return slug
+        #
+        # fields = ['title', 'excerpt', 'txt', 'slug']
+
