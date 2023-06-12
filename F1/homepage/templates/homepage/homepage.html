@@ -72,26 +72,32 @@ THE F1NAL PROJECT
     </div>
 </section>
 
-<section>
-    <div class="container">
-        <h2>WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
-        <div>
-            <p>city {{ city }}</p>
-            <img src="https://api.openweathermap.org/img/w/{{icon}}.png" width="30" alt="">
-            <p>description {{ description }}</p>
-            <p>temp {{ temp }}</p>
-            <p>temp_min {{ temp_min }}</p>
-            <p>temp_max {{ temp_max }}</p>
-            <p>pressure {{ pressure }}</p>
-            <p>humidity {{ humidity }}</p>
-            <p>wind {{ wind }}</p>
-            <p>clouds {{ clouds }}</p>
-            <p>country {{ country }}</p>
-            <p>sunrise {{ sunrise }}</p>
-            <p>sunset {{ sunset }}</p>
-            <p>timezone {{ timezone }}</p>
-            <p>time {{ time_race }}</p>
-        </div>
+<section class="weathersection">
+  <div class="weatherdiv">
+    <h2 style="weatherh2">WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
+    <div class="weatheraw1">
+      <div>
+        <h3>Next race in {{ city }}, {{ country }}</h3>
+          <p> {{ description }}</p>
+      </div>
+      <div>
+        <img
+          src="https://api.openweathermap.org/img/w/{{icon}}.png"
+          width="30"
+          alt=""
+        />
+        <p>Local time: {{ LOCAL_FOR_RACE }}</p>
+
+      </div>
     </div>
+    <div class="weatherdiv2">
+      <p>Temperature {{ temp }}°C</p>
+      <p>Min Temp {{ temp_min }}°C</p>
+      <p>Max Temp {{ temp_max }}°C</p>
+      <p>Pressure {{ pressure }}hPa</p>
+      <p>Humidity {{ humidity }}%</p>
+      <p>Wind {{ wind }}m/s</p>
+    </div>
+  </div>
 </section>
 {% endblock %}

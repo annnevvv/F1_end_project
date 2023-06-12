@@ -5,8 +5,6 @@ from .models import Event
 from .forms import RegistrationForEventForm
 
 
-# Create your views here.
-
 def index(request):
     events = Event.objects.all()
     return render(request, 'events/index.html', {
