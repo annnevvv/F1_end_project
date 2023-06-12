@@ -1,20 +1,39 @@
-<h1>Delete your account</h1>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Account Created{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'members.css' %}"/>
+{% endblock %}
 
 
-<div>
+{% block content %}
 
-    <form method="POST">
 
-        {% csrf_token %}
+<article class="container">
+    <p>Why do you want to leave us?<p>
+    <p>Stay with us and you will surely see!<p>
+    <h2>We promise !!!<h2>
+    <h1>Dont't delete your account!</h1>
 
-        <p>Are you sure???</p>
+    <section class="welcome-container">
+        <div>
+            <form method="POST">
 
-        <!-- {{ user_form|as_crispy_field }} -->
+                {% csrf_token %}
 
-        <button type="submit">DELETE ACCOUNT</button>
+                <p>Are you sure???</p>
 
-        <a href="{% url 'member_profile_manage' %}"></a>
+                <button type="submit">DELETE ACCOUNT</button>
 
-    </form>
+                <a href="{% url 'homepage' %}" class="signup-link">dashboard</a>
 
-</div>
+            </form>
+        </div>
+    </section>
+</article>
+
+{% endblock %}
+
+{% block footer %} {% endblock %}
