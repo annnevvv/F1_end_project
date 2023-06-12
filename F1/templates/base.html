@@ -15,8 +15,12 @@
     <nav class="nav-bar">
         <img class="logo" src="{% static 'images/F1nal.png' %}">
         <ul id="top-right-links">
+            {% if user.is_authenticated %}
+            <a href="#"><li style="color: red;">LOGOUT</li></a>
+            {% else %}
             <a href="#"><li style="color: red;">LOGIN</li></a>
             <a href="#"><li style="color: red;">REGISTER</li></a>
+            {% endif %}
         </ul>
         <ul>
             <a href="{% url 'homepage' %}"><li>HOME</li></a>
