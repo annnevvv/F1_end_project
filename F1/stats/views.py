@@ -1,7 +1,4 @@
-from django.shortcuts import render
-
-# Create your views here.
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpResponseBadRequest
 from django.shortcuts import render
 from stats.models import Constructors, Circuits, DriverStandings, ConstructorStandings, Drivers, DriversResults
 
@@ -18,7 +15,7 @@ def circuits(request):
 
 
 def driver_standings(request):
-    standings = DriverStandings.objects.select_related('constructorid').all()
+    standings = DriverStandings.objects.all()
     race_no = DriversResults.get_last_race()
     context = {
         'standings': standings,
@@ -27,7 +24,7 @@ def driver_standings(request):
     return render(request, 'stats/driver_standings.html', context)
 
 def constructor_standings(request):
-    standings = ConstructorStandings.objects.select_related('constructorid').all()
+    standings = ConstructorStandings.objects.all()
     race_no = DriversResults.get_last_race()
     context = {
         'standings': standings,
@@ -40,14 +37,15 @@ def drivers(request):
     return render(request, "stats/drivers.html", {'drivers': drivers})
 
 
-def driver_results(request, circuitid):
-    results = DriversResults.objects.select_related('circuitid').all()
-    circuit = Circuits.objects.get(circuitid=circuitid)
-    circuit_name = circuit.name
+def driver_results(request, circuitid, circuit_name):
+    results = DriversResults.objects.filter(circuitid=circuitid)
+    if not results.exists():
+        return HttpResponseBadRequest("<h1>Race has not yet taken place</h1>")
+
     context = {
         'results': results,
         'circuitid': circuitid,
-        'circuit_name': circuit_name,
+        'circuit': {'name': circuit_name},
     }
     return render(request, 'stats/driver_results.html', context)
 
@@ -57,3 +55,4 @@ def upcoming_races_view(request):
         'upcoming_races': upcoming_races
     }
     return render(request, 'stats/upcoming_races.html', context)
+
