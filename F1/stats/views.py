@@ -57,7 +57,7 @@ def upcoming_races_view(request):
     return render(request, 'stats/upcoming_races.html', context)
 
 def driver_standings_chart(request):
-    driver_standings = DriverStandings.objects.all()
+    driver_standings = DriverStandings.objects.order_by('-points')
 
     driver_ids = []
     points = []
