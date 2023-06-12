@@ -1,16 +1,25 @@
-{% extends 'members/main/base.html' %}
+{% extends 'base.html' %}
+
+{% load static %}
 
 {% block title %}Members{% endblock %}
 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'members.css' %}" />
+{% endblock %}
 
 {% block content %}
 
-<h1>Do u want to me member of our society?</h1>
-<div>
-    <a href="{% url 'sign_up' %}">CREATE MEMBER ACCOUNT</a>
-    <p></p>
-    <a href="{% url 'login' %}">LOGIN</a>
-</div> 
+<article class="container">
+<h1>Do you want to be member of our society?</h1>
+    <section class="welcome-container" >
+        <div>
+            <a href="{% url 'sign_up' %}" class="signup-link">create account</a>
+            <p></p>
+            <a href="{% url 'login' %}" class="signup-link">login</a>
+        </div>
+    </section>
+</article>
 
 {% endblock %}
 

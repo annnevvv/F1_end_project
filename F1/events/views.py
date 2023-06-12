@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 
-from .models import Event, Participant
-from .forms import RegistrationForm
+from .models import Event
+from .forms import RegistrationForEventForm
+
 
 # Create your views here.
 
@@ -16,13 +18,13 @@ def event_details(request, event_slug):
     try:
         selected_event = Event.objects.get(slug=event_slug)
         if request.method == 'GET':
-            registration_form = RegistrationForm()
+            registration_form = RegistrationForEventForm()
         else:
-            registration_form = RegistrationForm(request.POST)
+            registration_form = RegistrationForEventForm(request.POST)
             if registration_form.is_valid():
                 user_email = registration_form.cleaned_data['email']
-                participant, _ = Participant.objects.get_or_create(email=user_email)
-                selected_event.participants.add(participant)
+                user = User.objects.get(email=user_email)
+                selected_event.user.add(user)
                 return redirect('confirm-registration', event_slug=event_slug)
 
         return render(request, 'events/event-details.html', {
@@ -35,6 +37,7 @@ def event_details(request, event_slug):
         return render(request, 'events/event-details.html', {
             'event_found': False
         })
+
 
 def confirm_registration(request, event_slug):
     event = Event.objects.get(slug=event_slug)

@@ -1,0 +1,69 @@
+.container {
+    text-align: center;
+}
+
+
+.container h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin: 8px;
+    color: #9a0f0f;
+}
+
+
+.container h2 {
+    text-align: center;
+    font-size: 16px;
+    margin: 8px;
+    color: rgb(78, 78, 78);
+}
+
+
+
+.container p {
+    text-align: center;
+    font-size: 16px;
+    margin: auto;
+    color: rgb(78, 78, 78);
+}
+
+  
+.welcome-container {
+    width: fit-content;
+    height: fit-content;
+    max-width: 660px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 11px;
+    padding: 22px;
+    box-shadow: 0 2px 22px rgba(0, 13, 75, 0.99);
+    margin: 0 auto; /* Dodana zmiana */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 44px;
+    margin-bottom: 44px;
+}
+
+  
+.signup-link {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    min-width: 150px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.597);
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: #540b0b;
+    margin: 10px;
+    padding: 11px;
+}
+
+

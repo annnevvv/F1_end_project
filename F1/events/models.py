@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -10,14 +11,6 @@ class Circuit(models.Model):
         return f'{self.name} ({self.location})'
 
 
-class Participant(models.Model):
-    username = models.CharField(max_length=200)
-    email = models.EmailField(unique=True)
-
-    def __str__(self):
-        return f'{self.username} ({self.email})'
-
-
 class Event(models.Model):
     title = models.CharField(max_length=200)
     organizer_email = models.EmailField()
@@ -26,7 +19,7 @@ class Event(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='events/images')
     circuit = models.ForeignKey(Circuit, on_delete=models.CASCADE)
-    participants = models.ManyToManyField(Participant, blank=True)
+    user = models.ManyToManyField(User, blank=True, null=True)
 
     def __str__(self):
         return f'{self.title} - {self.date}'

@@ -1,6 +1,12 @@
-{% extends 'members/main/base.html' %}
+{% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% load static %}
+
+{% block title %}Sign UP{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'login.css' %}" />
+{% endblock %}
 
 {% load crispy_forms_tags %}
 
@@ -8,26 +14,51 @@
 
 <h1>Sign up<h1>
 
-<div>
-    <h2>Dont have account? Create here</h2>
-    <form method="POST" >
+<article>
 
-        {% csrf_token %}
+    <section class="container">
 
-        {{ form|crispy }}          
-        
+        <h3>Don't have account?</h3>
+        <h3>Create here !</h3>
+
+        <div >
+            <form method="POST" class="form-shadow">
+
+                {% csrf_token %}
+
+                <h3 >{{ form.username.label }}</h3>
+                    {{ form.username }}
+                <p>{{ form.username.help_text }}</p>
+
+                <h3>{{ form.email.label}}</h3>
+                    {{ form.email}}
+                <p>{{ form.email.help_text }}</p>
+
+                <h3>{{ form.password1.label }} </h3>
+                    {{ form.password1 }}
+                <h2>{{ form.password1.help_text }}</h2>
+
+                <h3>{{ form.password2.label }} </h3>
+                    {{ form.password2 }}
+                <p>{{ form.password2.help_text }}</p>
+
+                <button type="submit" class='button'>REGISTER ACCOUNT</button>
+
+            </form>
+        </div>
+
+    </section>
+
+
+    <div class="signup-section">
+        <h3>Have account?</h3>
         <p></p>
+        <h2><a href="{% url 'login' %}" class="signup-link" >login</a></h2>
+    </div>
 
-        <button type="submit">REGISTER ACCOUNT</button>
 
-    </form>
-</div>
-
-<div>
-    <div>
-        <h2>have account? Login here</h2>
-        <a href="{% url 'login' %}">LOGIN</a>
-    </div>     
-</div>
+</article>
 
 {% endblock %}
+
+{% block footer %}{% endblock %}
