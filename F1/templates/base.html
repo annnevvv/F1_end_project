@@ -13,7 +13,7 @@
 <body>
 <header class="page-header">
     <nav class="nav-bar">
-        <img class="logo" src="{% static 'blog/images/F1.png' %}">
+        <img class="logo" src="{% static 'images/F1nal.png' %}">
         <ul id="top-right-links">
             <a href="#"><li style="color: red;">LOGIN</li></a>
             <a href="#"><li style="color: red;">REGISTER</li></a>
@@ -21,7 +21,7 @@
         <ul>
             <a href="{% url 'homepage' %}"><li>HOME</li></a>
             <a href="{% url 'about' %}"><li>ABOUT</li></a>
-            <a href="#"><li>STATS</li></a>
+            <a href="{% url 'stats' %}"><li>STATS</li></a>
             <a href="{% url 'quiz_list' %}"><li>QUIZ</li></a>
             <a href="{% url 'events' %}"><li>EVENTS</li></a>
             <a href="{% url 'blog_main_page' %}"><li>BLOG</li></a>
@@ -33,7 +33,7 @@
 <div class="section-footer">
             <a href="{% url 'homepage' %}">HOME</a>
             <a href="{% url 'about' %}">ABOUT</a>
-            <a href="#">STATS</a>
+            <a href="{% url 'stats' %}">STATS</a>
             <a href="{% url 'quiz_list' %}">QUIZ</a>
             <a href="{% url 'events' %}">EVENTS</a>
             <a href="{% url 'blog_main_page' %}">BLOG</a>

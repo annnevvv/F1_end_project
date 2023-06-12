@@ -1,11 +1,11 @@
 from django.conf import settings
 from django.urls import path
 from stats.views import constructors, circuits, drivers, driver_results, driver_standings, upcoming_races_view, \
-    constructor_standings
+    constructor_standings, stats
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', driver_results, name='driver-results-list'),
+    path('', stats, name='stats'),
     path('constructors/', constructors, name='constructors'),
     path('circuits/', circuits, name='circuits'),
     path('drivers/', drivers, name="driver-list"),
