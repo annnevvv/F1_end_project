@@ -80,7 +80,7 @@ def homePage(request):
     data = raceTimer(CITY_RACE, DATE_RAVE, TIME_RACE, TIMEZONE)
     LOCAL_CITY_TIME = data[0]
     LOCAL_TIME = data[1]
-    TIME_DELTA = data[2]
+    TIME_DELTA = str(data[2]).split('.', 2)[0]
 
     context = {
         'city': CITY_RACE,
