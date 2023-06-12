@@ -31,20 +31,19 @@ def matchCitiesToApi(CITY_RACE):
             return CITY_RACE
 
 
-def raceTime(city, day_race, time_race, timezone):
+def raceTimer(city, day_race, time_race, timezone):
     race_time = datetime.datetime.strptime(f"{day_race} {time_race}",
                                            "%Y-%m-%d %H:%M:%S")
 
     geolocator = Nominatim(user_agent="my-app")
     location = geolocator.geocode(city)
 
-    tf = TimezoneFinder()
-    timezone_str = tf.timezone_at(lng=location.longitude,
-                                  lat=location.latitude)
-
-    if timezone_str is None:
-        raise ValueError(
-            "No match for timezone for that city")
+    try:
+        tf = TimezoneFinder()
+        timezone_str = tf.timezone_at(lng=location.longitude,
+                                      lat=location.latitude)
+    except ValueError:
+        print("No match for timezone for that city")
 
     city_timezone = tz.gettz(timezone_str)
 
@@ -78,7 +77,7 @@ def homePage(request):
     SUN_SET = int(res['sys']['sunset'])
     TIMEZONE = res['timezone']
 
-    data = raceTime(CITY_RACE, DATE_RAVE, TIME_RACE, TIMEZONE)
+    data = raceTimer(CITY_RACE, DATE_RAVE, TIME_RACE, TIMEZONE)
     LOCAL_CITY_TIME = data[0]
     LOCAL_TIME = data[1]
     TIME_DELTA = data[2]
