@@ -44,3 +44,6 @@ def homePage(request):
     }
 
     return render(request, 'homepage/homepage.html', context)
+
+def about(request):
+    return render(request, 'homepage/about.html')
