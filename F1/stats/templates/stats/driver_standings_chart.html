@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script class="chart" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         var ctx = document.getElementById('driverStandingsChart').getContext('2d');
         var driverIds = {{ driver_ids|safe }};

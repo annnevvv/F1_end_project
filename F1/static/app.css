@@ -20,12 +20,15 @@ h3 {
 }
 
 .page-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     top: 0;
     bottom: 20px;
-    display: flex;
     position: sticky;
     padding: 0px;
     background-color: white;
+    border-bottom: 2px solid rgb(150, 150, 150);
 }
 
 .page-header-container {
@@ -33,19 +36,29 @@ h3 {
 }
 
 .nav-bar {
+display: flex;
+justify-content: center;
+align-items: center;
     gap: 5px;
     margin-top: 30px;
     width: 100%;
-    text-align: center;
     background-color: #ffffff;
-    border-bottom: 2px solid rgb(150, 150, 150);
 }
 
+
 .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 150px;
-    margin: 15px 0;
+    margin-bottom: 40px;
     cursor: pointer;
-    text-align: center;
+}
+
+.menu {
+float: right;
+margin-top: 80px;
+margin-right: 20px;
 }
 
 .nav-bar li {
@@ -55,7 +68,7 @@ h3 {
     margin-bottom: 20px;
     margin-inline: 25px;
     list-style: none;
-    text-align: center;
+    text-align: right;
     text-decoration:none;
 }
 
@@ -69,7 +82,7 @@ h3 {
 #top-right-links {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20px;
     list-style: none;
     color: red;
 }
@@ -81,14 +94,27 @@ h3 {
     text-decoration: none;
 }
 
-@media screen and (min-width: 780px) {
-    #navbar {
+@media screen and (max-width: 780px) {
+    .page-header {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 20px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin-top: 0;
+        text-decoration: none;
     }
-
+    .nav-bar {
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin-top: 0;
+        text-decoration: none;
+    }
+    .logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+    }
 }
 
 .section-footer {

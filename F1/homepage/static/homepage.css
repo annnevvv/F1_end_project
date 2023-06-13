@@ -24,6 +24,10 @@ section {
     color: red;
 }
 
+.float-container {
+margin-bottom: 40px;
+}
+
 @media screen and (min-width: 780px) {
     .float-container img {
         float: left;
@@ -104,6 +108,7 @@ section {
 .weathersection {
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
   }
 
 .weatherdiv {

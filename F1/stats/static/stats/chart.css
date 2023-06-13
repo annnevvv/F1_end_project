@@ -1,8 +1,8 @@
-.content {
+.chart {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-    width: 100%;
-    height: 50vh;
+  width: 40%;
+  margin-bottom: 80px;
 }
