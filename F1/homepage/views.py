@@ -8,6 +8,8 @@ from dateutil import tz
 from stats.models import Circuits
 from stats.function_next_race import nextRace
 
+from django.templatetags.static import static
+
 
 # Create your views here.
 
@@ -104,7 +106,10 @@ def homePage(request):
         'DELTA': TIME_DELTA,
     }
 
+
+
     return render(request, 'homepage/homepage.html', context)
 
 def about(request):
     return render(request, 'homepage/about.html')
+

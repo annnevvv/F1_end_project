@@ -24,6 +24,10 @@ section {
     color: red;
 }
 
+.float-container {
+margin-bottom: 40px;
+}
+
 @media screen and (min-width: 780px) {
     .float-container img {
         float: left;
@@ -99,16 +103,19 @@ section {
     background-color: red;
 }
 
-
-
 .weathersection {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
 .weatherdiv {
     max-width: 800px;
-    margin: 20px;
+    margin-top: 40px;
+    margin-bottom: 80px;
     box-shadow: 0 0 11px rgba(0, 0, 0, 0.5);
     border-radius: 22px;
     padding: 20px;
@@ -134,6 +141,16 @@ section {
     width: 100%;
 }
 
+.weatheraw1 h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.weatheraw1 p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .weatheraw1 img {
     width: 40px;
     height: 40px;
@@ -145,7 +162,8 @@ section {
 }
 
 .weatheraw1 p {
-    font-size: 16px;
+    style: bold;
+    font-size: 18px;
     text-transform: uppercase;
     margin: 10px 0;
     text-align: center;
@@ -160,6 +178,8 @@ section {
 }
 
 .weatherdiv2 p {
+    font-weight: bold;
+    font-size: 18px;
     margin: 10px 0;
     text-align: center;
     padding: 5px;

@@ -16,7 +16,7 @@ THE F1NAL PROJECT
             <p style="color: white">We would like to present you a Formula One website created in Django framework.
                 You can find here multiple apps like F1 Statistics, Quiz, Events, Blogs and About Us page.
                 You can also check what are the current weather conditions on the next circuit location.
-                Learn more about our team <a href="#" style="text-decoration:none; color: red">here.</a>
+                Learn more about our team <a href="about" style="text-decoration:none; color: red">here.</a>
             </p>
         </div>
 
@@ -32,7 +32,7 @@ THE F1NAL PROJECT
                 <p>We provide the current, up-to-date statistics from 2023 Formula 1 season.
                     There you have Drivers' Standings, Constructors' Standings and results from all races. Is your favorite driver at the top?</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">SEE WHO'S WINNING</a>
+                    <a class="box-button" href="{% url 'stats' %}">SEE WHO'S WINNING</a>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@ THE F1NAL PROJECT
                 <p>Do you consider yourself a Formula One expert? How much do you know about the Queen of Motorsports?
                     You can accept our challenge and take the multi-choice questions Quiz we prepared for you.</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">LET'S PLAY!</a>
+                    <a class="box-button" href="{% url 'quiz_list' %}">LET'S PLAY!</a>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@ THE F1NAL PROJECT
                 <p>Do you like watching Formula One races, but don't know when and where the events take place?
                     Don't worry! Sign up to our Events app and you will always know when to turn on the TV!</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">SIGN UP NOW!</a>
+                    <a class="box-button" href="{% url 'events' %}">SIGN UP NOW!</a>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@ THE F1NAL PROJECT
                 <p>Here you can read about the latest revelations from Formula 1 and get to know the technology
                     behind the F1 cars. What is more, you can write a post yourself and become famous in the F1 community!</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">LATEST NEWS FROM PADDOCK</a>
+                    <a class="box-button" href="{% url 'blog_main_page' %}">LATEST NEWS FROM PADDOCK</a>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@ THE F1NAL PROJECT
     </div>
 </section>
 
-<section class="weathersection">
+<section class="weathersection" style="background-image: url('{% static 'images/Cloudy_sky.jpg' %}');">
   <div class="weatherdiv">
     <h2 style="weatherh2">WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
     <div class="weatheraw1">
