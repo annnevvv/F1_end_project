@@ -8,22 +8,16 @@
   margin-bottom: 20px;
 }
 
-.choose-view h1 {
+.chart-table h1 {
 text-align: center;
 }
 
-.choose-view th {
-text-align: center;
-border: none;
-padding: 10px;
-}
-
-.choose-view a {
+.chart-table a {
 text-decoration: none;
 color: black;
 }
 
-.choose-view a:hover {
+.chart-table a:hover {
 text-decoration: none;
 color: red;
 cursor: pointer;

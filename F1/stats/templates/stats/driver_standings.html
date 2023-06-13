@@ -11,35 +11,29 @@ F1 DRIVER STANDINGS 2023
 
 {% block content %}
 <section class="drivers">
-    <table class="choose-view">
-        <tr>
-            <th><h1>Driver Standings 2023 after {{ race_no }} races</h1></th>
-            <th><h1><a href="../chart">Change to Chart View</a></h1></th>
-        </tr>
-    </table>
-
     <h1>Driver Standings 2023 after {{ race_no }} races</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th id="standings">Standings</th>
-                    <th id="driver">Driver</th>
-                    <th id="constructor">Constructor</th>
-                    <th id="points">Points</th>
-                    <th id="wins">Wins</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for standing in standings|dictsortreversed:"points" %}
-                <tr>
-                    <td id="standings">{{ forloop.counter }}</td>
-                    <td id="driver">{{ standing.driverid.driver }}</td>
-                    <td id="constructor">{{ standing.constructorid.name }}</td>
-                    <td id="points">{{ standing.points }}</td>
-                    <td id="wins">{{ standing.wins }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <h1><a href="../chart">Change to Chart View</a></h1>
+    <table>
+        <thead>
+            <tr>
+                <th id="standings">Standings</th>
+                <th id="driver">Driver</th>
+                <th id="constructor">Constructor</th>
+                <th id="points">Points</th>
+                <th id="wins">Wins</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for standing in standings|dictsortreversed:"points" %}
+            <tr>
+                <td id="standings">{{ forloop.counter }}</td>
+                <td id="driver">{{ standing.driverid.driver }}</td>
+                <td id="constructor">{{ standing.constructorid.name }}</td>
+                <td id="points">{{ standing.points }}</td>
+                <td id="wins">{{ standing.wins }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </section>
 {% endblock %}

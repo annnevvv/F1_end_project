@@ -17,17 +17,13 @@ body {
   text-align: center;
 }
 
-.choose-view th {
-border: none;
-padding: 10px;
-}
 
-.choose-view a {
+.drivers a {
 text-decoration: none;
 color: red;
 }
 
-.choose-view a:hover {
+.drivers a:hover {
 text-decoration: none;
 color: white;
 cursor: pointer;
@@ -74,8 +70,8 @@ table {
 }
 
 th, td {
-  border: 3px solid red;
-  color: white;
+  border: 3px solid white;
+  color: red;
   text-align: center;
 }
 
