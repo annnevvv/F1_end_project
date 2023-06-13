@@ -12,9 +12,15 @@
 {% endblock %}
 
 {% block content %}
+<section class="chart-table">
+    <table class="choose-view">
+        <tr>
+            <th><h1>Driver Standings 2023 after {{ race_no }} races</h1></th>
+            <th><h1><a href="../driver_standings">Change to Table View</a></h1></th>
+        </tr>
+    </table>
+</section>
     <div class="content">
-        <h1></h1>
-        <h1>Driver Standings Chart</h1>
           <canvas id="driverStandingsChart" ></canvas>
     </div>
 {% endblock %}

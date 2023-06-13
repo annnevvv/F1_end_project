@@ -17,6 +17,23 @@ body {
   text-align: center;
 }
 
+.choose-view th {
+border: none;
+padding: 10px;
+}
+
+.choose-view a {
+text-decoration: none;
+color: red;
+}
+
+.choose-view a:hover {
+text-decoration: none;
+color: white;
+cursor: pointer;
+}
+
+
 table {
   display: flex;
   flex-direction: column;

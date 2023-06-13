@@ -1,8 +1,51 @@
-.chart {
+.chart-table {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.choose-view h1 {
+text-align: center;
+}
+
+.choose-view th {
+text-align: center;
+border: none;
+padding: 10px;
+}
+
+.choose-view a {
+text-decoration: none;
+color: black;
+}
+
+.choose-view a:hover {
+text-decoration: none;
+color: red;
+cursor: pointer;
+}
+
+
+table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 45%;
+  margin-left: 120px;
   margin-bottom: 80px;
 }
