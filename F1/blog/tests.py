@@ -70,7 +70,7 @@ class PostModelTestCase(TestCase):
         self.assertCountEqual(self.post.tags.all(), ['Tag1', 'Tag2'])
 
     def test_post_default_image(self):
-        self.assertEqual(self.post.image.path, 'posts/F1.png')
+        self.assertEqual(self.post.image.path, r"D:\programowanie\DYSK Z\2023\F1_end_project\F1\uploads\posts\F1.png")
 
 
 
