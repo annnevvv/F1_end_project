@@ -7,26 +7,30 @@ from .models import Post, Tag, Author
 
 fixtures = ['test_Post_fixture.json']
 
-from django.urls import reverse
 
-
-class HomepageTests(SimpleTestCase):
+class BlogMainTests(TestCase):
     def test_url_exists_at_correct_location(self):
-        response = self.client.get("/blog")
-        self.assertEqual(response.status_code, 200)
-
-    def test_url_available_by_name(self):
-        response = self.client.get(reverse("blog_main_page"))
+        url = reverse("blog_main_page")
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
     def test_template_name_correct(self):
-        response = self.client.get(reverse("blog_main_page"))
+        url = reverse("blog_main_page")
+        response = self.client.get(url)
         self.assertTemplateUsed(response, "blog/index.html")
 
     def test_template_content(self):
-        response = self.client.get(reverse("blog"))
+        url = reverse("blog_main_page")
+        response = self.client.get(url)
         self.assertContains(response, "<h2>Our Latest Posts</h2>")
         self.assertNotContains(response, "Not on the page")
+
+
+class BlogMainTestsSimple(SimpleTestCase):  # fail
+    def test_url_available_by_name(self):
+        url = reverse("blog_main_page")
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
 
 
 class PostModelTestCase(TestCase):
@@ -55,27 +59,32 @@ class PostModelTestCase(TestCase):
 
         cls.post.tags.set([tag1, tag2])
 
-    def test_post_str_representation(self):
+    def test_post_str_representation(self):  # pass
         self.assertEqual(str(self.post), 'post-testowy-01')
 
-    def test_post_fields(self):
+    def test_post_fields(self):  # pass
         self.assertEqual(self.post.title, 'PostTestowy 01')
-        self.assertEqual(self.post.excerpt, 'Excerpt testowy 01, Excerpt testowy 01, Excerpt testowy 01')
+        self.assertEqual(self.post.excerpt,
+                         'Excerpt testowy 01, Excerpt testowy 01, Excerpt testowy 01')
         self.assertEqual(self.post.image, 'posts/F1.png')
         self.assertEqual(str(self.post.date), '2023-06-13')
-        self.assertEqual(self.post.txt, "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+        self.assertEqual(self.post.txt,
+                         "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
         self.assertEqual(self.post.slug, 'post-testowy-01')
-        self.assertEqual(self.post.user.username, 'testuser')
-        self.assertEqual(self.post.author.name, 'Test Author')
-        self.assertCountEqual(self.post.tags.all(), ['Tag1', 'Tag2'])
+        self.assertEqual(self.post.user.username, 'Jey123')
+        self.assertEqual(self.post.author.f_name, 'Test01 f_Author')
 
-    def test_post_default_image(self):
-        self.assertEqual(self.post.image.path, r"D:\programowanie\DYSK Z\2023\F1_end_project\F1\uploads\posts\F1.png")
+        tag_list = [tag.caption for tag in self.post.tags.all()]
+
+        self.assertCountEqual(tag_list, ['Tag1', 'Tag2'])
+
+    def test_post_default_image(self):  # pass
+        self.assertEqual(self.post.image.path,
+                         r"D:\programowanie\DYSK Z\2023\F1_end_project\F1\uploads\posts\F1.png")
 
 
-
-class PostModelTestCase2(TestCase):
-    fixtures = fixtures[0]
+class PostModelTestCaseFixture(TestCase):
+    fixtures = 'test_Post_fixture.json'
 
     def test_post_str_representation(self):
         post = Post.objects.get(pk=1)
@@ -94,8 +103,7 @@ class PostModelTestCase2(TestCase):
         self.assertEqual(post.author.l_name, 'Test01 l_Author')
         self.assertEqual(post.author.pseudonym, 'Test Pseudonym 01')
         self.assertEqual(post.author.email, 'testautor01@test.pl')
-        self.assertCountEqual(post.tags.values_list('caption', flat=True),
-                              ['Tag1', 'Tag2'])
+        self.assertCountEqual(post.tags.values_list('caption', flat=True), ['Tag1', 'Tag2'])
 
     def test_post_default_image(self):
         post = Post.objects.get(pk=1)
