@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from .models import Event, Circuit
 
 
-class EventsMainTests(TestCase):
+class EventsMainTests(TestCase): #pass
     def test_url_exists_at_correct_location(self):
         url = reverse("events")
         response = self.client.get(url)
@@ -16,7 +16,7 @@ class EventsMainTests(TestCase):
         response = self.client.get(url)
         self.assertTemplateUsed(response, "events/index.html")
 
-    def test_template_content(self): #fial
+    def test_template_content(self): #pass
         url = reverse("events")
         response = self.client.get(url)
         self.assertContains(response, "<h2>All Events</h2>")
