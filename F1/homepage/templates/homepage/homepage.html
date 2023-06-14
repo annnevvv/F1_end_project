@@ -66,13 +66,14 @@ THE F1NAL PROJECT
 <section class="background-sectionaw">
     <div class="containeraw">
         <h2>TIME UNTIL NEXT RACE</h2>
-        <p>Local time for next race: {{ LOCAL_FOR_RACE }}</p>
-        <p>Your local time: {{ YOUR_LOCAL }}</p>
-        <p>Time to start: </p> <h2> {{ DELTA }}<h2>
+        <p>Local time for next race: {{ RACE_DATA }}</p>
+        <p>Your local time: {{ CURRENT_USER_TIME }}</p>
+        <p>Time to start: </p> <h2> {{ TIME_DELTA }}<h2>
     </div>
 </section>
 
 <section class="weathersection">
+    <meta http-equiv="refresh" content="60">
   <div class="weatherdiv">
     <h2 style="weatherh2">WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
     <div class="weatheraw1">
@@ -86,7 +87,7 @@ THE F1NAL PROJECT
           width="30"
           alt=""
         />
-        <p>Local time: {{ LOCAL_FOR_RACE }}</p>
+        <p>Local time in {{ city }}: {{ TIME_IN_RACE_CITY_NOW }}</p>
       </div>
     </div>
     <div class="weatherdiv2">

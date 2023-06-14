@@ -4,6 +4,7 @@ from geopy.geocoders import Nominatim
 from timezonefinder import TimezoneFinder
 import requests
 from dateutil import tz
+import pytz
 
 from stats.models import Circuits
 from stats.function_next_race import nextRace
@@ -51,10 +52,16 @@ def raceTimer(city, day_race, time_race, timezone):
     local_race_time = race_time.astimezone(tz.tzlocal())
 
     local_race_time += datetime.timedelta(seconds=timezone)
-    local_time = datetime.datetime.now(city_timezone)
-    time_difference = local_race_time - local_time
+    local_rece_city_time = datetime.datetime.now(city_timezone)
+    time_difference = local_race_time - local_rece_city_time
 
-    return (local_race_time, local_time, time_difference)
+    user_timezone = pytz.timezone('Europe/Warsaw')
+    current_time = datetime.datetime.now(user_timezone)
+    current_time = current_time + datetime.timedelta(hours=2)
+
+    local_rece_city_time = local_rece_city_time + datetime.timedelta(hours=-4)
+
+    return (local_race_time, local_rece_city_time, time_difference, current_time)
 
 
 def homePage(request):
@@ -78,9 +85,20 @@ def homePage(request):
     TIMEZONE = res['timezone']
 
     data = raceTimer(CITY_RACE, DATE_RAVE, TIME_RACE, TIMEZONE)
-    LOCAL_CITY_TIME = data[0]
-    LOCAL_TIME = data[1]
+    RACE_DATA = data[0]
+    TIME_IN_RACE_CITY_NOW = data[1]
     TIME_DELTA = str(data[2]).split('.', 2)[0]
+    CURRENT_USER_TIME = data[3]
+
+    print('-------------------------')
+    print('RACE DATA - ', data[0])
+    print()
+    print('TIME_IN_RACE_CITY_NOW - ', data[1])
+    print()
+    print('TIME_DELTA - ', data[2], type(data[2]))
+    print()
+    print('CURRENT_USER_TIME - ', data[3])
+    print('-------------------------')
 
     context = {
         'city': CITY_RACE,
@@ -99,9 +117,11 @@ def homePage(request):
         'sunset': res['sys']['sunset'],
         'timezone': res['timezone'],
         'time_race': TIME_RACE,
-        'LOCAL_FOR_RACE': LOCAL_CITY_TIME,
-        'YOUR_LOCAL': LOCAL_TIME,
-        'DELTA': TIME_DELTA,
+
+        'RACE_DATA': RACE_DATA,
+        'TIME_IN_RACE_CITY_NOW': TIME_IN_RACE_CITY_NOW,
+        'TIME_DELTA': TIME_DELTA,
+        'CURRENT_USER_TIME': CURRENT_USER_TIME
     }
 
     return render(request, 'homepage/homepage.html', context)
