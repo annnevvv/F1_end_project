@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}STATS{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'stats/stats.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="background-section">
+    <div class="container">
+        <div class="float-container">
+            <h1 style="text-align: center">F1 STATISTICS 2023</h1>
+            <p style="color: white">Here you can find main statistics from Formula One 2023 season. You can check the current standings in drivers and constructor championships. You can also find the results of each of the races. Enjoy the data!</p>
+        </div>
+
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="box-container">
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/stats.png' %}" alt="box image">
+                <h2 align="center">DRIVERS'<br> STANDINGS</h2>
+                <p>How many points has your favorite driver? What place does he has? You can find the up-to-date scoreboard here.</p>
+                <div class="box-footer">
+                    <a class="box-button" href="{% url 'driver_standings' %}">READ MORE</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/constructors.png' %}" alt="box image">
+                <h2 align="center">CONSTRUCTOR <br>STANDINGS</h2>
+                <p>The rivalry in the constructors' championship is very tight. Check what is the current ranking</p>
+                <div class="box-footer">
+                    <a class="box-button" href="{% url 'constructor_standings' %}">READ MORE</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/predict.png' %}" alt="box image">
+                <h2 align="center">RACES <br>RESULTS</h2>
+                <p>To win, drivers have to score points in every race. We provide results from all the circuits.</p>
+                <div class="box-footer">
+                    <a class="box-button" href="{% url 'circuits' %}">READ MORE</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img class="page-logo" src="{% static 'images/drivers.jpg' %}" alt="box image">
+                <h2 align="center">DRIVERS <br> LIST</h2>
+                <p>There are only 20 drivers competing each season in 10 teams. Who are this year's drivers?</p>
+                <div class="box-footer">
+                    <a class="box-button" href="{% url 'driver-list' %}">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

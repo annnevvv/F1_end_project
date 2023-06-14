@@ -1,0 +1,56 @@
+body {
+  background-color: rgb(150, 150, 150, 0.5);
+}
+
+.drivers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.drivers h1 {
+  color: red;
+  text-align: center;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+#driver {
+    width: 170px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#country {
+    width: 150px;
+    margin: 20px;
+    padding: 9px;
+}
+
+#constructor {
+    width: 150px;
+    margin: 20px;
+    padding: 8px;
+}
+
+th, td {
+  border: 3px solid red;
+  color: white;
+  text-align: center;
+}
+
+.drivers p {
+  text-align: center;
+  color: white;
+}

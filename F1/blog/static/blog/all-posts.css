@@ -5,9 +5,8 @@ body {
 #all-posts {
   display: flex;
   flex-direction: column;
-  margin: 4rem auto;
-  width: 90%;
-  max-width: 60rem;
+  margin: 2rem auto 2rem auto;
+  max-width: 1080px;
 }
 
 #all-posts h2 {
@@ -22,13 +21,14 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .post img {
   width: 7rem;
   height: 7rem;
+  align-content: center;
 }
 
 .post a {
@@ -37,4 +37,5 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   background-color: white;
+  padding: 20px;
 }

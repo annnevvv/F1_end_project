@@ -163,6 +163,19 @@ class DriverStandings(models.Model):
         db_table = 'driver_standings'
 
 
+
+class ConstructorStandings(models.Model):
+    cs_id = models.AutoField(db_column='cs_ID', primary_key=True)  # Field name made lowercase.
+    points = models.IntegerField(blank=True, null=True)
+    wins = models.IntegerField(blank=True, null=True)
+    constructorid = models.ForeignKey(Constructors, models.DO_NOTHING, db_column='constructorID')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'constructor_standings'
+
+
+
 class Drivers(models.Model):
     driverid = models.CharField(db_column='driverID', primary_key=True, max_length=30)  # Field name made lowercase.
     driver = models.CharField(max_length=40)
@@ -179,15 +192,16 @@ class DriversResults(models.Model):
     driverid = models.ForeignKey(Drivers, models.DO_NOTHING, db_column='driverID')  # Field name made lowercase.
     position = models.IntegerField()
     points = models.IntegerField()
-    constructorid = models.CharField(db_column='constructorID', max_length=50)  # Field name made lowercase.
+    constructorid = models.ForeignKey(Constructors,models.DO_NOTHING,db_column='constructorID', max_length=50)  # Field name made lowercase.
     laps = models.IntegerField()
     circuitid = models.ForeignKey(Circuits, models.DO_NOTHING, db_column='circuitID')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'drivers_results'
-
-
+    @classmethod
+    def get_last_race(cls):
+        return cls.objects.aggregate(max_circuitid=models.Max('circuitid'))['max_circuitid']
 
 class StatsDriverresult(models.Model):
     id = models.BigAutoField(primary_key=True)

@@ -7,30 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'app.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {% block css_files %} {% endblock %}
 </head>
 <body>
 <header class="page-header">
     <nav class="nav-bar">
-        <img class="logo" src="{% static 'blog/images/F1.png' %}">
-
+        <img class="logo" src="{% static 'images/F1nal.png' %}">
+        <ul id="top-right-links">
+            {% if user.is_authenticated %}
+            <a href="{% url 'login' %}"><li style="color: red;">LOGOUT</li></a>
+            {% else %}
+            <a href="{% url 'login' %}"><li style="color: red;">LOGIN</li></a>
+            <a href="{% url 'sign_up' %}"><li style="color: red;">REGISTER</li></a>
+            {% endif %}
+        </ul>
         <ul>
-            <a href=""><li>HOME</li></a>
-            <a href=""><li>ABOUT</li></a>
-            <a href="{% url "driver_standings" %}"><li>STATS</li></a>
-            <a href=""><li>QUIZ</li></a>
-            <a href=""><li>PREDICTIONS</li></a>
-            <a href=""><li>BLOG</li></a>
-            <a href=""><li>CONTACT</li></a>
+            <a href="{% url 'homepage' %}"><li>HOME</li></a>
+            <a href="{% url 'about' %}"><li>ABOUT</li></a>
+            <a href="{% url 'stats' %}"><li>STATS</li></a>
+            <a href="{% url 'quiz_list' %}"><li>QUIZ</li></a>
+            <a href="{% url 'events' %}"><li>EVENTS</li></a>
+            <a href="{% url 'blog_main_page' %}"><li>BLOG</li></a>
         </ul>
     </nav>
 </header>
   {% block content %}
   {% endblock %}
+ {% block scripts %}
+{% endblock %}
 <div class="section-footer">
-            <a href="#">ABOUT</a>
-            <a href="#">SHARE</a>
-            <a href="#">CONTACT</a>
+            <a href="{% url 'homepage' %}">HOME</a>
+            <a href="{% url 'about' %}">ABOUT</a>
+            <a href="{% url 'stats' %}">STATS</a>
+            <a href="{% url 'quiz_list' %}">QUIZ</a>
+            <a href="{% url 'events' %}">EVENTS</a>
+            <a href="{% url 'blog_main_page' %}">BLOG</a>
 </div>
 </body>
 </html>

@@ -10,18 +10,18 @@ The F1 Blog
 {% endblock %}
 {% block content %}
 
-<section id="latest-posts">
+<div id="latest-posts">
     <h2>Our Latest Posts</h2>
     <ul>
         {% for post in posts %}
         {% include "blog/includes/post.html" %}
         {% endfor %}
     </ul>
-</section>
+</div>
 
-<section id="about">
-    <h2>What Do We do</h2>
-    <p>We are passionate about the Queen of the Motorsport!</p>
-    <p>Our goal is spread the F1 word around the world.</p>
-</section>
+<div id="about">
+    <h2>All Posts</h2>
+    <p>To see all our posts click on the button.</p>
+    <a href="posts" class="posts-button">READ MORE</a>
+</div>
 {% endblock %}
