@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.test import SimpleTestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -24,13 +23,6 @@ class BlogMainTests(TestCase):
         response = self.client.get(url)
         self.assertContains(response, "<h2>Our Latest Posts</h2>")
         self.assertNotContains(response, "Not on the page")
-
-
-class BlogMainTestsSimple(SimpleTestCase):  # fail
-    def test_url_available_by_name(self):
-        url = reverse("blog_main_page")
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
 
 
 class PostModelTestCase(TestCase):
@@ -93,17 +85,20 @@ class PostModelTestCaseFixture(TestCase):
     def test_post_fields(self):
         post = Post.objects.get(pk=1)
         self.assertEqual(post.title, 'PostTestowy 01')
-        self.assertEqual(post.excerpt, 'Excerpt testowy 01, Excerpt testowy 01, Excerpt testowy 01')
+        self.assertEqual(post.excerpt,
+                         'Excerpt testowy 01, Excerpt testowy 01, Excerpt testowy 01')
         self.assertEqual(post.image, 'posts/F1.png')
         self.assertEqual(str(post.date), '2023-06-13')
-        self.assertEqual(post.txt, "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+        self.assertEqual(post.txt,
+                         "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
         self.assertEqual(post.slug, 'post-testowy-01')
         self.assertEqual(post.user.username, 'Jey123')
         self.assertEqual(post.author.f_name, 'Test01 f_Author')
         self.assertEqual(post.author.l_name, 'Test01 l_Author')
         self.assertEqual(post.author.pseudonym, 'Test Pseudonym 01')
         self.assertEqual(post.author.email, 'testautor01@test.pl')
-        self.assertCountEqual(post.tags.values_list('caption', flat=True), ['Tag1', 'Tag2'])
+        self.assertCountEqual(post.tags.values_list('caption', flat=True),
+                              ['Tag1', 'Tag2'])
 
     def test_post_default_image(self):
         post = Post.objects.get(pk=1)
