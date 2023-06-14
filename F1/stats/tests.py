@@ -1,3 +1,20 @@
 from django.test import TestCase
+from django.urls import reverse
 
 # Create your tests here.
+class StatsUrlsTests(TestCase):
+    def test_url_exists_at_correct_location(self):
+        url = reverse("constructors")
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_template_name_correct(self):
+        url = reverse("constructors")
+        response = self.client.get(url)
+        self.assertTemplateUsed(response, "stats/constructors.html")
+
+    def test_template_content(self):
+        url = reverse("constructors")
+        response = self.client.get(url)
+        self.assertContains(response, "<h1>LIST OF CONSTRUCTORS IN 2023</h1>")
+        self.assertNotContains(response, "Not on the page")

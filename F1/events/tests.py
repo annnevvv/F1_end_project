@@ -43,7 +43,7 @@ class EventModelTestCase(TestCase):
             user=user
         )
         def test_event_str_representation(self):
-            self.assertEqual(str(self.post), 'TestEvent01-2023-09-11')
+            self.assertEqual(str(self.post), 'TestEvent01 - 2023-09-11')
 
         def test_event_field(self):
             self.assertEqual(self.event.title, 'TestEvent01')
