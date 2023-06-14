@@ -76,7 +76,6 @@ class PostModelTestCase(TestCase):
         self.assertEqual(self.post.image.path,
                          r"D:\programowanie\DYSK Z\2023\F1_end_project\F1\uploads\posts\F1.png")
 
-
 # class PostModelTestCaseFixture(TestCase):
 #     fixtures = 'test_Post_fixture.json'
 #

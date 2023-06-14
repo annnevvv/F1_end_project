@@ -40,23 +40,27 @@ class EventModelTestCase(TestCase):
             description='Lorem ipsum dolor sit amet.',
             image='posts/F1.png',
             circuit=circuit,
-            user=user
         )
-        def test_event_str_representation(self):
-            self.assertEqual(str(self.post), 'TestEvent01 - 2023-09-11')
 
-        def test_event_field(self):
-            self.assertEqual(self.event.title, 'TestEvent01')
-            self.assertEqual(self.event.organizer_email, 'email@gmail.com')
-            self.assertEqual(self.event.date, '2023-09-11')
-            self.assertEqual(self.event.slug, 'event-one')
-            self.assertEqual(self.event.description, 'Lorem ipsum dolor sit amet.')
-            self.assertEqual(self.event.image, 'posts/F1.png')
-            self.assertEqual(self.event.circuit.title, 'TestCircuits01')
-            self.assertEqual(self.event.user.name, 'Jey123')
+        cls.event.user.set([user])
+    def test_event_str_representation(self): #pass
+        self.assertEqual(str(self.event), 'TestEvent01 - 2023-09-11')
 
-        def test_event_default_image(self):
-            post = Event.objects.get(pk=1)
-            self.assertEqual(post.image.path, 'posts/F1.png')
+    def test_event_field(self): #pass
+        self.assertEqual(self.event.title, 'TestEvent01')
+        self.assertEqual(self.event.organizer_email, 'email@gmail.com')
+        self.assertEqual(self.event.date, '2023-09-11')
+        self.assertEqual(self.event.slug, 'event-one')
+        self.assertEqual(self.event.description, 'Lorem ipsum dolor sit amet.')
+        self.assertEqual(self.event.image, 'posts/F1.png')
+        self.assertEqual(self.event.circuit.name, 'TestCircuits01')
+
+        user_list = [user.username for user in self.event.user.all()]
+
+        self.assertCountEqual(user_list, ['Jey123'])
+
+    def test_event_default_image(self):
+        post = Event.objects.get(pk=1)
+        self.assertEqual(post.image.path, 'posts/F1.png')
 
 
