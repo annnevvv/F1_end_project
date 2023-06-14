@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views import View
 from .models import Quiz, UserResponse, Choice, Question
+
 
 class QuizListView(View):
     def get(self, request):
         quizzes = Quiz.objects.all()
         return render(request, 'quiz/quiz_list.html', {'quizzes': quizzes})
+
 
 class QuizDetailView(View):
     def get(self, request, quiz_id):

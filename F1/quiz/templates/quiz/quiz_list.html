@@ -17,10 +17,10 @@ THE F1 QUIZ
 </div>
 
 <div id="list-quiz">
-<ol>
-  {% for quiz in quizzes %}
-    <a href="{% url 'quiz_detail' quiz.id %}" class="quiz-button">TAKE THE QUIZ</a>
-  {% endfor %}
-</ol>
+    <ol>
+      {% for quiz in quizzes %}
+        <a href="{% url 'quiz_detail' quiz.id %}" class="quiz-button">TAKE THE QUIZ</a>
+      {% endfor %}
+    </ol>
 </div>
 {% endblock %}

@@ -18,14 +18,14 @@ THE ULTIMATE F1 QUIZ
   {% csrf_token %}
   {% for question in questions %}
     <h3>{{ question.question_text }}</h3>
-  <ul>
-      {% for choice in question.choice_set.all %}
-      <li><input type="radio" name="{{ question.id }}" value="{{ choice.id }}">
-          {{ choice.choice_text }}</li>
-      {% endfor %}
-  </ul>
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li><input type="radio" name="{{ question.id }}" value="{{ choice.id }}">
+            {{ choice.choice_text }}</li>
+        {% endfor %}
+    </ul>
   {% endfor %}
-  <button type="submit" class="submit-button">Submit</button>
+    <button type="submit" class="submit-button">Submit</button>
 </form>
 </article>
 {% endblock %}
