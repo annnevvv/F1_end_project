@@ -1,3 +1,22 @@
+.chart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-color: black;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  width: 20rem;
+  margin: 20px;
+}
+
+.chart-button:hover {
+  background-color: red;
+  border-color: red;
+  color: white;
+}
+
 .chart-table {
   display: flex;
   flex-direction: column;
@@ -7,22 +26,6 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
-.chart-table h1 {
-text-align: center;
-}
-
-.chart-table a {
-text-decoration: none;
-color: black;
-}
-
-.chart-table a:hover {
-text-decoration: none;
-color: red;
-cursor: pointer;
-}
-
 
 table {
   display: flex;
