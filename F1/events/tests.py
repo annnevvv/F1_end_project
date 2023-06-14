@@ -16,10 +16,10 @@ class EventsMainTests(TestCase):
         response = self.client.get(url)
         self.assertTemplateUsed(response, "events/index.html")
 
-    def test_template_content(self):
+    def test_template_content(self): #fial
         url = reverse("events")
         response = self.client.get(url)
-        self.assertContains(response, "<h2>Event Location</h2>")
+        self.assertContains(response, "<h2>All Events</h2>")
         self.assertNotContains(response, "Not on the page")
 
 

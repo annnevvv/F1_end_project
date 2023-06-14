@@ -7,6 +7,7 @@ from django.db import models
 
 
 class Author(models.Model):
+    objects = None
     f_name = models.CharField(max_length=30)
     l_name = models.CharField(max_length=30)
     pseudonym = models.CharField(max_length=30)
