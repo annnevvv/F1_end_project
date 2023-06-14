@@ -89,7 +89,7 @@ def homePage(request):
     data = raceTimer(CITY_RACE, DATE_RAVE, TIME_RACE, TIMEZONE)
     RACE_DATA = data[0]
     TIME_IN_RACE_CITY_NOW = data[1]
-    TIME_DELTA = str(data[2]).split('.', 2)[0]
+    TIME_DELTA = str(data[2]).split('.', 2)[0][:-3]
     CURRENT_USER_TIME = data[3]
 
     print('-------------------------')
