@@ -2,6 +2,24 @@ body {
   background-color: rgb(150, 150, 150, 0.5);
 }
 
+.chart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-color: red;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  width: 20rem;
+  margin: 20px;
+}
+
+.chart-button:hover {
+  background-color: rgb(155, 0, 0, 0.7);
+  border-color: rgb(155, 0, 0, 0.7);
+}
+
 .constructors {
   display: flex;
   flex-direction: column;

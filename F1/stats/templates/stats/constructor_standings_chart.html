@@ -3,31 +3,32 @@
 {% load static %}
 
 {% block title %}
-    Driver Standings Chart
+    Constructor Standings Chart
 {% endblock %}
 
-
 {% block css_files %}
-    <link rel="stylesheet" href="{% static 'stats/driver_standings_chart.css' %}">
+    <link rel="stylesheet" href="{% static 'stats/constructor_standings_chart.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="content">
-        <h1></h1>
-        <h1>Driver Standings Chart</h1>
-          <canvas id="driverStandingsChart" ></canvas>
-    </div>
+<section class="chart-table">
+    <h1>Constructor Standings 2023 after {{ race_no }} races</h1>
+    <a href="../constructor_standings" class="chart-button">Change to Table View</a>
+</section>
+<div class="content">
+    <canvas id="constructorStandingsChart"></canvas>
+</div>
 {% endblock %}
 
 {% block scripts %}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script class="chart" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        var ctx = document.getElementById('driverStandingsChart').getContext('2d');
-        var driverIds = {{ driver_ids|safe }};
+        var ctx = document.getElementById('constructorStandingsChart').getContext('2d');
+        var constructorIds = {{ constructor_ids|safe }};
         var points = {{ points|safe }};
 
         var chartData = {
-            labels: driverIds,
+            labels: constructorIds,
             datasets: [{
                 label: 'Points',
                 data: points,

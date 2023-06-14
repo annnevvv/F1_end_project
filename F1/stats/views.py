@@ -58,6 +58,7 @@ def upcoming_races_view(request):
 
 def driver_standings_chart(request):
     driver_standings = DriverStandings.objects.order_by('-points')
+    race_no = DriversResults.get_last_race()
 
     driver_ids = []
     points = []
@@ -69,6 +70,26 @@ def driver_standings_chart(request):
     context = {
         'driver_ids': driver_ids,
         'points': points,
+        'race_no': race_no,
     }
 
     return render(request, 'stats/driver_standings_chart.html', context)
+
+def constructor_standings_chart(request):
+    constructor_standings = ConstructorStandings.objects.order_by('-points')
+    race_no = DriversResults.get_last_race()
+
+    constructor_ids = []
+    points = []
+
+    for standing in constructor_standings:
+        constructor_ids.append(standing.constructorid.name)
+        points.append(standing.points)
+
+    context = {
+        'constructor_ids': constructor_ids,
+        'points': points,
+        'race_no': race_no,
+    }
+
+    return render(request, 'stats/constructor_standings_chart.html', context)
