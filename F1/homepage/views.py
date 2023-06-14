@@ -92,16 +92,6 @@ def homePage(request):
     TIME_DELTA = str(data[2]).split('.', 2)[0][:-3]
     CURRENT_USER_TIME = data[3]
 
-    print('-------------------------')
-    print('RACE DATA - ', data[0])
-    print()
-    print('TIME_IN_RACE_CITY_NOW - ', data[1])
-    print()
-    print('TIME_DELTA - ', data[2], type(data[2]))
-    print()
-    print('CURRENT_USER_TIME - ', data[3])
-    print('-------------------------')
-
     context = {
         'city': CITY_RACE,
         'icon': res['weather'][0]['icon'],
@@ -126,10 +116,9 @@ def homePage(request):
         'CURRENT_USER_TIME': CURRENT_USER_TIME
     }
 
-
-
     return render(request, 'homepage/homepage.html', context)
 
 def about(request):
+
     return render(request, 'homepage/about.html')
 
