@@ -17,7 +17,8 @@
     <img id="main-image" src="{{ event.image.url }}" alt="{{ event.title }}">
     <section id="location">
         <h2>Event Location</h2>
-        <address>This races takes place in <span>{{ event.circuit.name }}</span>({{ event.circuit.location }})</address>
+        <address>This races takes place in <span>{{ event.circuit.name }}</span> ({{ event.circuit.location }})</address>
+        <date>on {{ event.date }}</date>
     </section>
     <section id="details">
         <h2>About Race</h2>
@@ -29,6 +30,7 @@
 
     <section id="registration">
         <h2>Join us!</h2>
+        <p>You must be logged-in to register!</p>
         <form action="{% url 'event-detail' event.slug %}" method="POST">
             {% csrf_token %}
             <ul>

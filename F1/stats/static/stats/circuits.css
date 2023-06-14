@@ -1,0 +1,123 @@
+body {
+  background-color: rgb(150, 150, 150, 0.5);
+}
+
+.circuits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.circuits h1 {
+  color: red;
+  text-align: center;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+th, td {
+  border: 3px solid white;
+  color: red;
+  text-align: center;
+}
+
+#number {
+    width: 55px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#name {
+    width: 100px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#td-name {
+    width: 100px;
+    margin: 20px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#country {
+    width: 100px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#td-country {
+    width: 100px;
+    margin: 20px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#city {
+    width: 100px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#td-city {
+    width: 100px;
+    margin: 20px;
+    padding: 8px;
+    margin: 14px;
+}
+
+#date {
+    width: 80px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#td-date {
+    width: 80px;
+    margin: 20px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#results {
+    width: 75px;
+    margin: 20px;
+    padding: 8px;
+}
+
+#td-results {
+    width: 75px;
+    margin: 20px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#td-results a:link {
+    text-decoration: none;
+    color: red;
+}
+
+#td-results a:visited {
+  text-decoration: none;
+  color: red;
+}
+
+#td-results a:hover {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+

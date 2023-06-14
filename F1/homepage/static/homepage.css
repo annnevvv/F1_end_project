@@ -16,7 +16,6 @@ section {
     padding: 0 10px;
 }
 
-
 .container h1 {
     color: red;
 }
@@ -25,7 +24,7 @@ section {
     color: red;
 }
 
-.float-container p {
+.float-container {
 margin-bottom: 40px;
 }
 
@@ -104,40 +103,132 @@ margin-bottom: 40px;
     background-color: red;
 }
 
-.weather {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 30px;
-background-color: white;
-margin-top: 30px;
-margin-bottom: 50px;
+
+
+.weathersection {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.weather h2 {
-color: red;
-text-align: center;
+.weatherdiv {
+  max-width: 800px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.5);
+  border-radius: 22px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(rgba(159, 226, 180, 0.5), rgba(255, 255, 255, 0.9)), url("blue.avif");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.weather table {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 30px;
-  max-width: 1080px;
-  border-collapse: collapse;
-  margin-bottom: 40px;
+.weatherdiv h2 {
+    font-size: 24px;
+    color: red;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    width: 100%;
+    text-align: center;
 }
 
-.weather th,
-td {
-  border: 3px solid red;
-  color: grey;
-  padding: 10px;
+.weatheraw1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
 }
 
-.weather p {
+.weatheraw1 h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.weatheraw1 p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.weatheraw1 img {
+    width: 40px;
+    height: 40px;
+}
+
+.weatheraw1 div {
+    display: flex;
+    flex-direction: column;
+}
+
+.weatheraw1 p {
+    style: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 10px 0;
+    text-align: center;
+    padding: 5px;
+}
+
+.weatherdiv2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.weatherdiv2 p {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .weatherdiv {
+      width: 100%;
+}
+}
+
+
+
+.background-sectionaw {
+  background-color: #540b0b;
+  padding: 20px;
+  border-radius: 22px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 20px auto;
+  margin-top: 40px;
+  margin-bottom: 1px;
+}
+
+.containeraw {
   text-align: center;
+}
+
+.containeraw h2 {
+  font-size: 24px;
+  color: white;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.containeraw p {
+  font-size: 16px;
+  color: white;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 800px) {
+  .background-sectionaw {
+    margin: 10px;
+  }
 }

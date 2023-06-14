@@ -50,3 +50,15 @@ def signUp(request):
         form = RegistrationForm()
 
     return render(request, 'registration/sign-up.html', {'form': form})
+
+
+@login_required(login_url='/login')
+def deleteMemberAccount(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()
+        logout(request)
+        return redirect('homepage')
+    else:
+        return render(request, 'members/main/delete-member-account.html')
+

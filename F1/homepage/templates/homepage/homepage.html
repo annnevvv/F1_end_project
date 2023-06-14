@@ -16,7 +16,7 @@ THE F1NAL PROJECT
             <p style="color: white">We would like to present you a Formula One website created in Django framework.
                 You can find here multiple apps like F1 Statistics, Quiz, Events, Blogs and About Us page.
                 You can also check what are the current weather conditions on the next circuit location.
-                Learn more about our team <a href="#" style="text-decoration:none; color: red">here.</a>
+                Learn more about our team <a href="about" style="text-decoration:none; color: red">here.</a>
             </p>
         </div>
 
@@ -32,7 +32,7 @@ THE F1NAL PROJECT
                 <p>We provide the current, up-to-date statistics from 2023 Formula 1 season.
                     There you have Drivers' Standings, Constructors' Standings and results from all races. Is your favorite driver at the top?</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">SEE WHO'S WINNING</a>
+                    <a class="box-button" href="{% url 'stats' %}">SEE WHO'S WINNING</a>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@ THE F1NAL PROJECT
                 <p>Do you consider yourself a Formula One expert? How much do you know about the Queen of Motorsports?
                     You can accept our challenge and take the multi-choice questions Quiz we prepared for you.</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">LET'S PLAY!</a>
+                    <a class="box-button" href="{% url 'quiz_list' %}">LET'S PLAY!</a>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@ THE F1NAL PROJECT
                 <p>Do you like watching Formula One races, but don't know when and where the events take place?
                     Don't worry! Sign up to our Events app and you will always know when to turn on the TV!</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">SIGN UP NOW!</a>
+                    <a class="box-button" href="{% url 'events' %}">SIGN UP NOW!</a>
                 </div>
             </div>
 
@@ -62,68 +62,45 @@ THE F1NAL PROJECT
                 <p>Here you can read about the latest revelations from Formula 1 and get to know the technology
                     behind the F1 cars. What is more, you can write a post yourself and become famous in the F1 community!</p>
                 <div class="box-footer">
-                    <a class="box-button" href="#">LATEST NEWS FROM PADDOCK</a>
+                    <a class="box-button" href="{% url 'blog_main_page' %}">LATEST NEWS FROM PADDOCK</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="background-section">
-    <div class="container">
+<section class="background-sectionaw">
+    <div class="containeraw">
         <h2>TIME UNTIL NEXT RACE</h2>
-        <p>LOCAL_FOR_RACE {{ LOCAL_FOR_RACE }}</p>
-        <p>YOUR_LOCAL {{ YOUR_LOCAL }}</p>
-        <p>DELTA {{ DELTA }}</p>
+        <p>Local time for next race: {{ RACE_DATA }}</p>
+        <p>Your local time: {{ CURRENT_USER_TIME }}</p>
+        <p>Time to start: </p> <h2> {{ TIME_DELTA }}<h2>
     </div>
 </section>
-<div class="weather">
-    <h2 style="text-align: center">WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
-        <table>
-            <tr>
-                <th>City:</th>
-                <td>{{ city }}</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>{{ country }}</td>
-            </tr>
-             <tr>
-                <th>Day</th>
-                <td>{{ day }}</td>
-            </tr>
-            <tr>
-                <th>Now:</th>
-                <td><img src="https://api.openweathermap.org/img/w/{{icon}}.png" width="40" alt=""></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ description }}</td>
-            </tr>
-            <tr>
-                <th>Temperature</th>
-                <td>{{ temp }} °C</td>
-            </tr>
-            <tr>
-                <th>Min Temperature</th>
-                <td>{{ temp_min }} °C</td>
-            </tr>
-            <tr>
-                <th>Max Temperature</th>
-                <td>{{ temp_max }} °C</td>
-            </tr>
-            <tr>
-                <th>Pressure</th>
-                <td>{{ pressure }} hPa</td>
-            </tr>
-            <tr>
-                <th>Humidity</th>
-                <td>{{ humidity }}%</td>
-            </tr>
-            <tr>
-                <th>Wind</th>
-                <td>{{ wind }} m/s</td>
-            </tr>
-        </table>
-</div>
+
+<section class="weathersection">
+  <div class="weatherdiv">
+    <h2 style="weatherh2">WEATHER CONDITIONS IN THE NEXT DESTINATION:</h2>
+    <div class="weatheraw1">
+      <div>
+        <h3>Next race in {{ city }}, {{ country }}</h3>
+          <p> {{ description }}</p>
+      </div>
+      <div>
+        <img
+          src="https://api.openweathermap.org/img/w/{{icon}}.png"
+          width="30"/>
+        <p>Local time in {{ city }}: {{ TIME_IN_RACE_CITY_NOW }}</p>
+      </div>
+    </div>
+    <div class="weatherdiv2">
+      <p>Temperature {{ temp }}°C</p>
+      <p>Min Temp {{ temp_min }}°C</p>
+      <p>Max Temp {{ temp_max }}°C</p>
+      <p>Pressure {{ pressure }}hPa</p>
+      <p>Humidity {{ humidity }}%</p>
+      <p>Wind {{ wind }}m/s</p>
+    </div>
+  </div>
+</section>
 {% endblock %}

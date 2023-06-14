@@ -12,15 +12,17 @@
 {% endblock %}
 
 {% block content %}
+<section class="chart-table">
+    <h1>Driver Standings 2023 after {{ race_no }} races</h1>
+    <a href="../driver_standings" class="chart-button">Change to Table View</a>
+</section>
     <div class="content">
-        <h1></h1>
-        <h1>Driver Standings Chart</h1>
           <canvas id="driverStandingsChart" ></canvas>
     </div>
 {% endblock %}
 
 {% block scripts %}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script class="chart" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         var ctx = document.getElementById('driverStandingsChart').getContext('2d');
         var driverIds = {{ driver_ids|safe }};

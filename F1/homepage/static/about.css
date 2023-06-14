@@ -96,8 +96,8 @@ font-size: 30px;
   flex-direction: row;
   align-items: flex-start;
   gap: 20px;
-  margin-top: 10px;
 }
+
 .material-symbols-outlined a:link {
   text-decoration: none;
   color: white;

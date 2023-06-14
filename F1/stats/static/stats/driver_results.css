@@ -2,25 +2,7 @@ body {
   background-color: rgb(150, 150, 150, 0.5);
 }
 
-.chart-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  border-color: red;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  width: 20rem;
-  margin: 20px;
-}
-
-.chart-button:hover {
-  background-color: rgb(155, 0, 0, 0.7);
-  border-color: rgb(155, 0, 0, 0.7);
-}
-
-.constructors {
+.drivers {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +12,7 @@ body {
   margin-bottom: 50px;
 }
 
-.constructors h1 {
+.drivers h1 {
   color: red;
   text-align: center;
 }
@@ -44,26 +26,32 @@ table {
   margin-bottom: 40px;
 }
 
-#standings {
-    width: 140px;
+#position {
+    width: 90px;
     margin: 20px;
     padding: 8px;
 }
 
 #points {
-    width: 140px;
+    width: 70px;
     margin: 20px;
     padding: 8px;
 }
 
-#wins {
-    width: 140px;
+#laps {
+    width: 60px;
     margin: 20px;
-    padding: 9px;
+    padding: 8px;
+}
+
+#driver {
+    width: 130px;
+    margin: 20px;
+    padding: 8px;
 }
 
 #constructor {
-    width: 140px;
+    width: 130px;
     margin: 20px;
     padding: 8px;
 }
@@ -74,7 +62,7 @@ th, td {
   text-align: center;
 }
 
-.constructors p {
+.drivers p {
   text-align: center;
   color: white;
 }

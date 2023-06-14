@@ -1,24 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Circuits List
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'stats/circuits.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="circuits">
 <h1>Circuits List</h1>
 <table>
     <thead>
         <tr>
-            <th>No.</th>
-            <th>Name</th>
-            <th>Country</th>
-            <th>City</th>
-            <th>Date</th>
+            <th id="number">No.</th>
+            <th id="name">Name</th>
+            <th id="country">Country</th>
+            <th id="city">City</th>
+            <th id="date">Date</th>
+            <th id="results">Results</th>
         </tr>
     </thead>
     <tbody>
     {% for circuit in circuits|dictsort:"date" %}
         <tr>
-            <td>{{ circuit.circuitid }}</td>
-            <td>{{ circuit.name }}</td>
-            <td>{{ circuit.country }}</td>
-            <td>{{ circuit.city }}</td>
-            <td>{{ circuit.date }}</td>
-            <td><a href="{% url 'driver_results' circuit.circuitid circuit.name %}">View Results</a></td>
+            <td id="number">{{ circuit.circuitid }}</td>
+            <td id="td-name">{{ circuit.name }}</td>
+            <td id="td-country">{{ circuit.country }}</td>
+            <td id="td-city">{{ circuit.city }}</td>
+            <td id="td-date">{{ circuit.date }}</td>
+            <td id="td-results"><a href="{% url 'driver_results' circuit.circuitid circuit.name %}">View Results</a></td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
+</section>
+{% endblock %}

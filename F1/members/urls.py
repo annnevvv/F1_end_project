@@ -1,7 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-from .views import goToMemberRegister, signUp, memberRegisterConfirmation, memberDashboard
+from .views import goToMemberRegister, signUp, memberRegisterConfirmation, \
+    memberDashboard, deleteMemberAccount
 
 urlpatterns = [
 
@@ -9,6 +10,8 @@ urlpatterns = [
     path('signup', signUp, name='sign_up'),
     path('confirm-member-account-created', memberRegisterConfirmation,
          name='confirm-member-account-created'),
+    path('delete-member-account', deleteMemberAccount,
+         name='delete_member_account'),
 
     path('password-change-done', auth_views.PasswordChangeDoneView.as_view(
         template_name='password-change-done.html')),

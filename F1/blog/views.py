@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth import logout
 
 from .models import Post
 from .forms import CommentForm, PostCreatedForm
