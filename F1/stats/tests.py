@@ -3,9 +3,8 @@ from django.urls import reverse
 from .models import StatsDriverresult, Circuits
 
 
-
-class StatsUrlsTests(TestCase):  # pass
-    def test_url_exists_at_correct_location(self):
+class StatsUrlsTestsCase(TestCase):
+    def test_url_exists_at_correct_location(self): # pass
         url = reverse("stats")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -13,16 +12,16 @@ class StatsUrlsTests(TestCase):  # pass
     def test_template_name_correct(self):  # pass
         url = reverse("stats")
         response = self.client.get(url)
-        self.assertTemplateUsed(response, "stats/constructors.html")
+        self.assertTemplateUsed(response, "stats/index.html")
 
     def test_template_content(self):  # pass
         url = reverse("stats")
         response = self.client.get(url)
-        self.assertContains(response, "<h1>LIST OF CONSTRUCTORS IN 2023</h1>")
+        self.assertContains(response, "F1 STATISTICS 2023")
         self.assertNotContains(response, "Not on the page")
 
 
-class StatsDriverresultModelTestCase(TestCase):
+class StatsDriverresultModelTestCase(TestCase): #bigfail
     databases = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -41,7 +40,8 @@ class StatsDriverresultModelTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):
         circuits = Circuits.objects.create(
-            circuitid='co1',  # Field name made lowercase. db_column='circuitID' - co to z referencja ?
+            circuitid='co1',
+            # Field name made lowercase. db_column='circuitID' - co to z referencja ?
             name='C01',
             country='CO',
             city='Montreal',
@@ -58,7 +58,6 @@ class StatsDriverresultModelTestCase(TestCase):
             laps=50,
             circuitid=circuits
         )
-
 
     def test_stats_driverresult_fields(self):
         stats_driverresult = StatsDriverresult.objects.get(driverid=1)
