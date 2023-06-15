@@ -8,124 +8,110 @@
 {% block content %}
 <h1>DASHBOARD</h1>
 
-        <article class="container">
-            <section class="welcome-container">
-                <div>
-                    <h2>Welcome @{{ user }} !</h2>
-                    <p></p>
-                    <li>Here you can:</li>
-                    <p></p>
-                    <li>See and delete you posts</li>
-                    <li>See and sing out for meetups</li>
-                    <li>Manage Account</li>
-                    <p></p>
-                </div>
-            </section>
-        </article>
+<article class="container">
+    <section class="welcome-container">
+        <div>
+            <h2>Welcome @{{ user }} !</h2>
+            <p></p>
+            <li>Here you can:</li>
+            <p></p>
+            <li>See and delete you posts</li>
+            <li>See and sign up for events</li>
+            <li>Manage Account</li>
+            <p></p>
+        </div>
+    </section>
+</article>
 
-        <article class="box-container">
-
-            <h2 class="section_title">your posts</h2>
-
-            <section>
-
-                {% for post in posts %}
-                {% if user == post.user %}
-                <div>
-                    <div class="box-post">
-
-                        <h3>{{ post.title }}</h3>
-
-                        <p id="box-excerpt">{{ post.excerpt }}</p> <br>
-
-                        {% if post.tags in not None %}
-                        <p>{{ post.tags }}</p>
-                        {% endif %}
-
-                        <p>{{ post.txt }}</p> <br>
-
-                        <p>@{{post.author.name}}{{post.user.username}}</p>
-                        <p>last updated at {{post.date}}</p>
-
-                        {% if post.author in not None %}
-                        <p>{{ post.author }}</p>
-                        {% endif %}
-
-                        {% if user == post.user or perms.blog.delete_post %}
-                        <form method='POST'>
-                            {% csrf_token %}
-                            <button type="submit" name='post-id'
-                                    value='{{ post.id }}'>DELETE
-                            </button>
-                        </form>
-                        {% endif %}
-
-                    </div>
-                </div>
-
+<article class="box-container">
+    <h2 class="section_title">your posts</h2>
+    <section>
+        {% for post in posts %}
+        {% if user == post.user %}
+        <div>
+            <div class="box-post">
+                <h3>{{ post.title }}</h3>
+                <p id="box-excerpt">{{ post.excerpt }}</p> <br>
+                {% if post.tags in not None %}
+                <p>{{ post.tags }}</p>
                 {% endif %}
-                {% endfor %}
+                <p>{{ post.txt }}</p> <br>
+                <p>@{{post.author.name}}{{post.user.username}}</p>
+                <p>last updated at {{post.date}}</p>
 
-            </section>
-        </article>
-
-        <article class="box-container">
-
-            <h2 class="section_title">Your Events</h2>
-
-            <section>
-
-                {% for event in events %}
-                {% if user in event.user.all %}
-
-                <div>
-                    <div class="box-event">
-
-                        <h3 id="event_title">{{ event.title }}</h3>
-
-                        {% if event.image in not None %}
-                        <p>{{ event.image }}</p>
-                        {% endif %}
-
-                        <p>{{ event.date }}, {{ event.organizer_email}} </p>
-
-                        <p>{{ event.circuit }}</p>
-
-                        <p>{{ event.description }}</p> <br>
-
-                        {% comment %} {% if user == event.user or
-                        perms.blog.delete_post %}
-                        <form method='POST'>
-                            {% csrf_token %}
-                            <button type="submit" name='post-id'
-                                    value='{{ post.id }}'>SINGOUT
-                            </button>
-                        </form>
-                        {% endif %} {% endcomment %}
-
-                    </div>
-                </div>
-
+                {% if post.author in not None %}
+                <p>{{ post.author }}</p>
                 {% endif %}
-                {% endfor %}
 
-            </section>
-        </article>
+                {% if user == post.user or perms.blog.delete_post %}
+                <form method='POST'>
+                    {% csrf_token %}
+                    <button type="submit" name='post-id'
+                            value='{{ post.id }}'>DELETE
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% endfor %}
+
+    </section>
+</article>
+
+<article class="box-container">
+    <h2 class="section_title">Your Events</h2>
+    <section>
+
+        {% for event in events %}
+        {% if user in event.user.all %}
+
+        <div>
+            <div class="box-event">
+
+                <h3 id="event_title">{{ event.title }}</h3>
+
+                {% if event.image in not None %}
+                <p>{{ event.image }}</p>
+                {% endif %}
+
+                <p>{{ event.date }}, {{ event.organizer_email}} </p>
+                <p>{{ event.circuit }}</p>
+                <p>{{ event.description }}</p> <br>
+
+                {% comment %} {% if user == event.user or
+                perms.blog.delete_post %}
+                <form method='POST'>
+                    {% csrf_token %}
+                    <button type="submit" name='post-id'
+                            value='{{ post.id }}'>SINGOUT
+                    </button>
+                </form>
+                {% endif %} {% endcomment %}
+
+            </div>
+        </div>
+
+        {% endif %}
+        {% endfor %}
+
+    </section>
+</article>
 
 
-        <article class="box-container">
-            <h2 class="section_title">Manage Your Account</h2>
-            <section>
-                <div class="signup-section">
-                    <a href="{% url 'create_post' %}"
-                       class="signup-link">Create Post</a>
-                    <a href="{% url 'events' %}" class="signup-link">
-                        Sign up for Event</a>
-                    <a href="{% url 'logout' %}" class="signup-link">
-                        Logout</a>
-                    <a href="{% url 'delete_member_account' %}" class="signup-link">
-                        Delete Account</a>
-                </div>
-            </section>
-        </article>
-        {% endblock %}
+<article class="box-container">
+    <h2 class="section_title">Manage Your Account</h2>
+    <section>
+        <div class="signup-section">
+            <a href="{% url 'create_post' %}"
+               class="signup-link">Create Post</a>
+            <a href="{% url 'events' %}" class="signup-link">
+                Sign up for Event</a>
+            <a href="{% url 'logout' %}" class="signup-link">
+                Logout</a>
+            <a href="{% url 'delete_member_account' %}" class="signup-link">
+                Delete Account</a>
+        </div>
+    </section>
+</article>
+
+{% endblock %}
