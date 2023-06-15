@@ -8,9 +8,6 @@ from blog.models import Post
 from events.models import Event
 
 
-# Create your views here.
-
-
 def goToMemberRegister(request):
     return render(request, 'members/main/members.html')
 
@@ -20,7 +17,8 @@ def memberRegisterConfirmation(request):
 
 
 @login_required(login_url='/login')
-@permission_required('blog.delete_post', login_url='/login', raise_exception=True)
+@permission_required('blog.delete_post', login_url='/login',
+                     raise_exception=True)
 def memberDashboard(request):
     posts = Post.objects.all().order_by("-date")
     events = Event.objects.all().order_by("-date")
@@ -28,10 +26,12 @@ def memberDashboard(request):
     if request.method == 'POST':
         post_id = request.POST.get('post-id')
         post = Post.objects.get(id=post_id)
-        if post and (post.user == request.user or request.user.has_perm('blog.delete_post')):
+        if post and (post.user == request.user or request.user.has_perm(
+                'blog.delete_post')):
             post.delete()
 
-    return render(request, 'members/main/dashboard.html', {'posts': posts, 'events': events})
+    return render(request, 'members/main/dashboard.html',
+                  {'posts': posts, 'events': events})
 
 
 def signUp(request):
@@ -61,4 +61,3 @@ def deleteMemberAccount(request):
         return redirect('homepage')
     else:
         return render(request, 'members/main/delete-member-account.html')
-

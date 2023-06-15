@@ -4,7 +4,7 @@ from .models import StatsDriverresult, Circuits
 
 
 class StatsUrlsTestsCase(TestCase):
-    def test_url_exists_at_correct_location(self): # pass
+    def test_url_exists_at_correct_location(self):  # pass
         url = reverse("stats")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -21,7 +21,7 @@ class StatsUrlsTestsCase(TestCase):
         self.assertNotContains(response, "Not on the page")
 
 
-class StatsDriverresultModelTestCase(TestCase): #bigfail
+class StatsDriverresultModelTestCase(TestCase):  # bigfail
     databases = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',

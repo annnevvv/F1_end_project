@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here
 
 
@@ -14,7 +15,9 @@ class Quiz(models.Model):
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question_text = models.TextField()
-    correct_choice = models.ForeignKey('Choice', null=True, blank=True, on_delete=models.SET_NULL, related_name='correct_answer')
+    correct_choice = models.ForeignKey('Choice', null=True, blank=True,
+                                       on_delete=models.SET_NULL,
+                                       related_name='correct_answer')
 
     def __str__(self):
         return self.question_text
@@ -35,4 +38,3 @@ class UserResponse(models.Model):
 
     def __str__(self):
         return f"User response: {self.question.question_text} - Choice: {self.choice.choice_text}"
-

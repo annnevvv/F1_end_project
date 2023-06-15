@@ -63,7 +63,8 @@ def raceTimer(city, day_race, time_race, timezone):
 
     local_rece_city_time = local_rece_city_time + datetime.timedelta(hours=-4)
 
-    return (local_race_time, local_rece_city_time, time_difference, current_time)
+    return (
+    local_race_time, local_rece_city_time, time_difference, current_time)
 
 
 def homePage(request):
@@ -118,7 +119,6 @@ def homePage(request):
 
     return render(request, 'homepage/homepage.html', context)
 
+
 def about(request):
-
     return render(request, 'homepage/about.html')
-

@@ -4,11 +4,13 @@ from django.urls import reverse
 from quiz.models import Quiz, Question, Choice, UserResponse
 from quiz.views import QuizListView, QuizDetailView, QuizSubmitView
 
+
 class QuizModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Set up non-modified objects used by all test methods
-        Quiz.objects.create(title='Test Quiz', description='This is a test quiz.')
+        Quiz.objects.create(title='Test Quiz',
+                            description='This is a test quiz.')
 
     def test_title_label(self):
         quiz = Quiz.objects.get(id=1)
@@ -30,15 +32,20 @@ class QuizModelTest(TestCase):
         expected_object_name = quiz.title
         self.assertEqual(str(quiz), expected_object_name)
 
+
 if __name__ == '__main__':
     unittest.main()
+
 
 class QuestionModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        quiz = Quiz.objects.create(title='Test Quiz', description='This is a test quiz.')
-        question = Question.objects.create(quiz=quiz, question_text='Test question')
-        choice = Choice.objects.create(choice_text='Test choice', question=question)
+        quiz = Quiz.objects.create(title='Test Quiz',
+                                   description='This is a test quiz.')
+        question = Question.objects.create(quiz=quiz,
+                                           question_text='Test question')
+        choice = Choice.objects.create(choice_text='Test choice',
+                                       question=question)
         question.correct_choice = choice
         question.save()
 
@@ -50,7 +57,8 @@ class QuestionModelTest(TestCase):
     def test_question_text_max_length(self):
         question = Question.objects.get(id=1)
         max_length = question._meta.get_field('question_text').max_length
-        self.assertIsNone(max_length)  # Assuming there is no explicit max_length set
+        self.assertIsNone(
+            max_length)  # Assuming there is no explicit max_length set
 
     def test_quiz_foreign_key(self):
         question = Question.objects.get(id=1)
@@ -68,15 +76,20 @@ class QuestionModelTest(TestCase):
         expected_object_name = question.question_text
         self.assertEqual(str(question), expected_object_name)
 
+
 if __name__ == '__main__':
     unittest.main()
+
 
 class ChoiceModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        quiz = Quiz.objects.create(title='Test Quiz', description='This is a test quiz.')
-        question = Question.objects.create(quiz=quiz, question_text='Test question')
-        Choice.objects.create(question=question, choice_text='Test choice', is_correct=False)
+        quiz = Quiz.objects.create(title='Test Quiz',
+                                   description='This is a test quiz.')
+        question = Question.objects.create(quiz=quiz,
+                                           question_text='Test question')
+        Choice.objects.create(question=question, choice_text='Test choice',
+                              is_correct=False)
 
     def test_choice_text_label(self):
         choice = Choice.objects.get(id=1)
@@ -103,12 +116,17 @@ class ChoiceModelTest(TestCase):
         expected_object_name = choice.choice_text
         self.assertEqual(str(choice), expected_object_name)
 
+
 class UserResponseModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        quiz = Quiz.objects.create(title='Test Quiz', description='This is a test quiz.')
-        question = Question.objects.create(quiz=quiz, question_text='Test question')
-        choice = Choice.objects.create(question=question, choice_text='Test choice', is_correct=False)
+        quiz = Quiz.objects.create(title='Test Quiz',
+                                   description='This is a test quiz.')
+        question = Question.objects.create(quiz=quiz,
+                                           question_text='Test question')
+        choice = Choice.objects.create(question=question,
+                                       choice_text='Test choice',
+                                       is_correct=False)
         UserResponse.objects.create(question=question, choice=choice)
 
     def test_question_foreign_key(self):
@@ -133,11 +151,13 @@ class QuizListViewTest(TestCase):
         self.url = reverse('quiz_list')
 
     def test_quiz_list_view(self):
-        quiz = Quiz.objects.create(title='Test Quiz', description='This is a test quiz.')
+        quiz = Quiz.objects.create(title='Test Quiz',
+                                   description='This is a test quiz.')
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'quiz/quiz_list.html')
         self.assertContains(response, quiz.title)
+
 
 class QuizDetailViewTest(TestCase):
     def setUp(self):
@@ -146,7 +166,8 @@ class QuizDetailViewTest(TestCase):
         self.url = reverse('quiz_detail', args=[self.quiz.id])
 
     def test_quiz_detail_view(self):
-        question = Question.objects.create(quiz=self.quiz, question_text='Test question')
+        question = Question.objects.create(quiz=self.quiz,
+                                           question_text='Test question')
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'quiz/quiz_detail.html')
@@ -160,9 +181,13 @@ class QuizSubmitViewTest(TestCase):
         self.url = reverse('submit_quiz', args=[self.quiz.id])
 
     def test_quiz_submit_view(self):
-        question = Question.objects.create(quiz=self.quiz, question_text='Test question')
-        choice = Choice.objects.create(question=question, choice_text='Test choice', is_correct=True)
-        response = self.client.post(self.url, {str(question.id): str(choice.id)})
+        question = Question.objects.create(quiz=self.quiz,
+                                           question_text='Test question')
+        choice = Choice.objects.create(question=question,
+                                       choice_text='Test choice',
+                                       is_correct=True)
+        response = self.client.post(self.url,
+                                    {str(question.id): str(choice.id)})
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'quiz/quiz_result.html')
         self.assertContains(response, 'feedback')

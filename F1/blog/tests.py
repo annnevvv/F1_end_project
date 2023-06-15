@@ -2,10 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 from datetime import datetime
 from django.contrib.auth.models import User
-from django.core.management import call_command
 
 from .models import Post, Tag, Author, Comment
-from .forms import PostCreatedForm
 
 fixtures = ['test_Post_fixture.json']
 current_date = datetime.now().strftime('%Y-%m-%d')
@@ -79,7 +77,7 @@ class PostModelTestCase(TestCase):
                          r"D:\programowanie\DYSK Z\2023\F1_end_project\F1\uploads\posts\F1.png")
 
 
-class CommentModelTestCase(TestCase): #pass
+class CommentModelTestCase(TestCase):  # pass
     @classmethod
     def setUpTestData(cls):
         user = User.objects.create(username='Jey123',
@@ -118,7 +116,7 @@ class CommentModelTestCase(TestCase): #pass
         self.assertEqual(comment.post.comments.count(), 1)
         self.assertEqual(comment.post.comments.first(), comment)
 
-    def test_comment_str_representation(self): #pass
+    def test_comment_str_representation(self):  # pass
         comment = Comment.objects.get(pk=1)
         expected_str = f"{comment.user_name} - {comment.user_email}"
         self.assertEqual(str(comment), expected_str)

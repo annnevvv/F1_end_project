@@ -1,9 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 
-# Create your tests here.
 
-class HomepageAboutPageTestsCase(TestCase): #pass
+class HomepageAboutPageTestsCase(TestCase):  # pass
     def test_url_exists_at_correct_location(self):
         url = reverse("about")
         response = self.client.get(url)
@@ -14,7 +13,7 @@ class HomepageAboutPageTestsCase(TestCase): #pass
         response = self.client.get(url)
         self.assertTemplateUsed(response, "homepage/about.html")
 
-    def test_template_content(self): #pass
+    def test_template_content(self):  # pass
         url = reverse("about")
         response = self.client.get(url)
         self.assertContains(response, "ABOUT PROJECT")

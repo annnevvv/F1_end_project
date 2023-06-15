@@ -13,7 +13,8 @@ class QuizDetailView(View):
     def get(self, request, quiz_id):
         quiz = Quiz.objects.get(id=quiz_id)
         questions = Question.objects.filter(quiz=quiz)
-        return render(request, 'quiz/quiz_detail.html', {'quiz': quiz, 'questions': questions})
+        return render(request, 'quiz/quiz_detail.html',
+                      {'quiz': quiz, 'questions': questions})
 
 
 class QuizSubmitView(View):

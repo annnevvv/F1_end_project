@@ -7,9 +7,7 @@ from .forms import RegistrationForEventForm
 
 def index(request):
     events = Event.objects.all()
-    return render(request, 'events/index.html', {
-        'events': events
-    })
+    return render(request, 'events/index.html', {'events': events})
 
 
 def event_details(request, event_slug):

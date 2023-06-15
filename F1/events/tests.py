@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from .models import Event, Circuit
 
 
-class EventsMainTests(TestCase): #pass
+class EventsMainTests(TestCase):  # pass
     def test_url_exists_at_correct_location(self):
         url = reverse("events")
         response = self.client.get(url)
@@ -16,7 +16,7 @@ class EventsMainTests(TestCase): #pass
         response = self.client.get(url)
         self.assertTemplateUsed(response, "events/index.html")
 
-    def test_template_content(self): #pass
+    def test_template_content(self):  # pass
         url = reverse("events")
         response = self.client.get(url)
         self.assertContains(response, "<h2>All Events</h2>")
@@ -43,10 +43,11 @@ class EventModelTestCase(TestCase):
         )
 
         cls.event.user.set([user])
-    def test_event_str_representation(self): #pass
+
+    def test_event_str_representation(self):  # pass
         self.assertEqual(str(self.event), 'TestEvent01 - 2023-09-11')
 
-    def test_event_field(self): #pass
+    def test_event_field(self):  # pass
         self.assertEqual(self.event.title, 'TestEvent01')
         self.assertEqual(self.event.organizer_email, 'email@gmail.com')
         self.assertEqual(self.event.date, '2023-09-11')
@@ -62,6 +63,3 @@ class EventModelTestCase(TestCase):
     def test_event_str_representation(self):
         expected_str = 'TestEvent01 - 2023-09-11'
         self.assertEqual(str(self.event), expected_str)
-
-
-

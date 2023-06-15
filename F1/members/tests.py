@@ -34,5 +34,3 @@ class RegistrationFormTestCase(TestCase):  # pass
 
         form = RegistrationForm(data=form_data)
         self.assertFalse(form.is_valid())
-
-
