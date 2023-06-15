@@ -1,5 +1,5 @@
 host='localhost'
 user='root'
-password='Wiktoria23!'
+password='Dareczek123'
 
 

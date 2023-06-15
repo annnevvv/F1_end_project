@@ -90,9 +90,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'formula1',
         'USER': 'root',
-        'PASSWORD': 'Ania123!',
+        'PASSWORD': 'Dareczek123',
         'HOST': 'localhost',
         'PORT': '3306',
+        'TEST': {
+            'DEPENDENCIES': [],
+        },
     },
 }
 
