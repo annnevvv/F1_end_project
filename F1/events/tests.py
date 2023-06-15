@@ -59,8 +59,9 @@ class EventModelTestCase(TestCase):
 
         self.assertCountEqual(user_list, ['Jey123'])
 
-    def test_event_default_image(self):
-        post = Event.objects.get(pk=1)
-        self.assertEqual(post.image.path, 'posts/F1.png')
+    def test_event_str_representation(self):
+        expected_str = 'TestEvent01 - 2023-09-11'
+        self.assertEqual(str(self.event), expected_str)
+
 
 

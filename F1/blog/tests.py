@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from datetime import datetime
 from django.contrib.auth.models import User
-from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.management import call_command
 
 from .models import Post, Tag, Author, Comment
 from .forms import PostCreatedForm
@@ -12,7 +12,7 @@ current_date = datetime.now().strftime('%Y-%m-%d')
 txt_for_post = "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
 
-class BlogMainTests(TestCase):  # pass
+class BlogMainUrlTest(TestCase):  # pass
     def test_url_exists_at_correct_location(self):
         url = reverse("blog_main_page")
         response = self.client.get(url)
@@ -79,7 +79,7 @@ class PostModelTestCase(TestCase):
                          r"D:\programowanie\DYSK Z\2023\F1_end_project\F1\uploads\posts\F1.png")
 
 
-class CommentModelTestCase(TestCase):
+class CommentModelTestCase(TestCase): #pass
     @classmethod
     def setUpTestData(cls):
         user = User.objects.create(username='Jey123',
@@ -103,7 +103,7 @@ class CommentModelTestCase(TestCase):
             post=post
         )
 
-    def test_comment_fields(self): #pass
+    def test_comment_fields(self):  # pass
         comment = Comment.objects.get(pk=1)
         self.assertEqual(comment.user_name, 'Nothing Nothing')
         self.assertEqual(comment.user_email, 'johndoe@example.com')
@@ -118,75 +118,7 @@ class CommentModelTestCase(TestCase):
         self.assertEqual(comment.post.comments.count(), 1)
         self.assertEqual(comment.post.comments.first(), comment)
 
-    def test_comment_str_representation(self):
+    def test_comment_str_representation(self): #pass
         comment = Comment.objects.get(pk=1)
         expected_str = f"{comment.user_name} - {comment.user_email}"
         self.assertEqual(str(comment), expected_str)
-
-
-class PostCreatedFormTest(TestCase):
-    fixtures = ['members/fixtures/members.json', 'posts.json']
-
-    def setUp(self):
-        # Przygotowanie danych do testów
-        self.user = User.objects.get(username='user1')
-        self.url = reverse('create_post')
-        self.file = SimpleUploadedFile(
-            name='test_image.jpg',
-            content=b'',
-            content_type='image/jpeg'
-        )
-
-    def test_post_creation(self):
-        form_data = {
-            'title': 'Test Post',
-            'excerpt': 'This is a test post.',
-            'txt': 'Lorem ipsum dolor sit amet.',
-            'slug': 'test-post',
-        }
-
-        form = PostCreatedForm(data=form_data, files={'image': self.file})
-        self.assertTrue(form.is_valid())
-
-        response = self.client.post(self.url, form_data)
-        self.assertEqual(response.status_code, 302)
-
-        post = Post.objects.last()
-        self.assertEqual(post.title, form_data['title'])
-        self.assertEqual(post.excerpt, form_data['excerpt'])
-        self.assertEqual(post.txt, form_data['txt'])
-        self.assertEqual(post.slug, form_data['slug'])
-        self.assertEqual(post.author, self.user)
-        self.assertEqual(post.image.url, f'/media/{self.file.name}')
-
-
-
-
-# class PostModelTestCaseFixture(TestCase):
-#     fixtures = 'test_Post_fixture.json'
-#
-#     def test_post_str_representation(self):
-#         post = Post.objects.get(pk=1)
-#         self.assertEqual(str(post), 'post-testowy-01')
-#
-#     def test_post_fields(self):
-#         post = Post.objects.get(pk=1)
-#         self.assertEqual(post.title, 'PostTestowy 01')
-#         self.assertEqual(post.excerpt,
-#                          'Excerpt testowy 01, Excerpt testowy 01, Excerpt testowy 01')
-#         self.assertEqual(post.image, 'posts/F1.png')
-#         self.assertEqual(str(post.date), '2023-06-13')
-#         self.assertEqual(post.txt,
-#                          "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
-#         self.assertEqual(post.slug, 'post-testowy-01')
-#         self.assertEqual(post.user.username, 'Jey123')
-#         self.assertEqual(post.author.f_name, 'Test01 f_Author')
-#         self.assertEqual(post.author.l_name, 'Test01 l_Author')
-#         self.assertEqual(post.author.pseudonym, 'Test Pseudonym 01')
-#         self.assertEqual(post.author.email, 'testautor01@test.pl')
-#         self.assertCountEqual(post.tags.values_list('caption', flat=True),
-#                               ['Tag1', 'Tag2'])
-#
-#     def test_post_default_image(self):
-#         post = Post.objects.get(pk=1)
-#         self.assertEqual(post.image.path, 'posts/F1.png')

@@ -1,0 +1,12 @@
+[
+  {
+    "model": "members.member",
+    "pk": 2,
+    "fields": {
+      "username": "invaliduser",
+      "email": "invalid_email",
+      "password1": "testpassword",
+      "password2": "wrongpassword"
+    }
+  }
+]

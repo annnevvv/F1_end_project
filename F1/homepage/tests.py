@@ -3,7 +3,7 @@ from django.urls import reverse
 
 # Create your tests here.
 
-class HomepageAboutPageTests(TestCase): #pass
+class HomepageAboutPageTestsCase(TestCase): #pass
     def test_url_exists_at_correct_location(self):
         url = reverse("about")
         response = self.client.get(url)
