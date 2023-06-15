@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'crispy_forms',
+    "crispy_bootstrap5",
+
     'members.apps.MembersConfig',
 
     'blog',
@@ -87,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'formula1',
         'USER': 'root',
-        'PASSWORD': 'Wiktoria23!',
+        'PASSWORD': 'Ania123!',
         'HOST': 'localhost',
         'PORT': '3306',
     },
@@ -112,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
