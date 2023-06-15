@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-THE F1 QUIZ
+F1 QUIZ
 {% endblock %}
 
 {% block css_files %}
@@ -11,7 +11,9 @@ THE F1 QUIZ
 
 {% block content %}
 <div id="about-quiz">
-    <h2>Formula 1 Quiz</h2>
+    {% for quiz in quizzes %}
+    <h2>{{ quiz.title }}</h2>
+    {% endfor %}
     <h3 align="center">How well do you know the Queen of Motorsports?</h3>
     <p align="center">Face Our Challenge!</p>
 </div>

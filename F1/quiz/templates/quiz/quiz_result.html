@@ -12,7 +12,8 @@ QUIZ RESULT
 
 {% block content %}
 <article>
-  <h1>Quiz Result</h1>
+  <h1>{{ quiz.title }} Result</h1>
+  <h2>{{ quiz.description }}</h2>
   <h2>Score: {{ score }}/{{ total_questions }}</h2>
   <div class="feedback">
     {{ feedback }}
