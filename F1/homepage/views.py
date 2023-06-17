@@ -54,17 +54,17 @@ def raceTimer(city, day_race, time_race, timezone):
     local_race_time = race_time.astimezone(tz.tzlocal())
 
     local_race_time += datetime.timedelta(seconds=timezone)
-    local_rece_city_time = datetime.datetime.now(city_timezone)
-    time_difference = local_race_time - local_rece_city_time
+    local_race_city_time = datetime.datetime.now(city_timezone)
+    time_difference = local_race_time - local_race_city_time
 
     user_timezone = pytz.timezone('Europe/Warsaw')
     current_time = datetime.datetime.now(user_timezone)
     current_time = current_time + datetime.timedelta(hours=2)
 
-    local_rece_city_time = local_rece_city_time + datetime.timedelta(hours=-4)
+    local_race_city_time = local_race_city_time + datetime.timedelta(hours=-4)
 
     return (
-    local_race_time, local_rece_city_time, time_difference, current_time)
+    local_race_time, local_race_city_time, time_difference, current_time)
 
 
 def homePage(request):
@@ -74,7 +74,7 @@ def homePage(request):
     DATA_RACE = nextRace(upcoming_races)
     CITY_RACE = DATA_RACE[0]
     TIME_RACE = str(DATA_RACE[1])
-    DATE_RAVE = DATA_RACE[2]
+    DATE_RACE = DATA_RACE[2]
     CITY_RACE = matchCitiesToApi(CITY_RACE)
 
     appid = '490aa8f1a63ecf555ff9a003341030cf'
@@ -87,7 +87,7 @@ def homePage(request):
     SUN_SET = int(res['sys']['sunset'])
     TIMEZONE = res['timezone']
 
-    data = raceTimer(CITY_RACE, DATE_RAVE, TIME_RACE, TIMEZONE)
+    data = raceTimer(CITY_RACE, DATE_RACE, TIME_RACE, TIMEZONE)
     RACE_DATA = data[0]
     TIME_IN_RACE_CITY_NOW = data[1]
     TIME_DELTA = str(data[2]).split('.', 2)[0][:-3]
