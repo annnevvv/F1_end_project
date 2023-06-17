@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from .models import Event
 from .forms import RegistrationForEventForm
@@ -10,6 +11,7 @@ def index(request):
     return render(request, 'events/index.html', {'events': events})
 
 
+@login_required(login_url='/login')
 def event_details(request, event_slug):
     try:
         selected_event = Event.objects.get(slug=event_slug)
