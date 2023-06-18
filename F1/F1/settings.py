@@ -90,6 +90,9 @@ DATABASES = {
         'PASSWORD': 'Ania123!',
         'HOST': 'localhost',
         'PORT': '3306',
+        'TEST': {
+            'DEPENDENCIES': [],
+        },
     },
 }
 
