@@ -36,9 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'crispy_forms',
-    "crispy_bootstrap5",
-
     'members.apps.MembersConfig',
 
     'blog',
@@ -90,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'formula1',
         'USER': 'root',
-        'PASSWORD': 'Dareczek123',
+        'PASSWORD': 'Ania123!',
         'HOST': 'localhost',
         'PORT': '3306',
         'TEST': {
