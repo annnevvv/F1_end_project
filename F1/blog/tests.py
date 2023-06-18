@@ -2,12 +2,22 @@ from django.test import TestCase
 from django.urls import reverse
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.test import Client
 
 from .models import Post, Tag, Author, Comment
 
 fixtures = ['test_Post_fixture.json']
 current_date = datetime.now().strftime('%Y-%m-%d')
-txt_for_post = "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+txt_for_post = "Lorem ipsum dolor sit amet. Lorem Ipsum is simply dummy " \
+               "text of the printing and typesetting industry. Lorem " \
+               "Ipsum has been the industry's standard dummy text ever " \
+               "since the 1500s, when an unknown printer took a galley of type " \
+               "and scrambled it to make a type specimen book. It has survived " \
+               "not only five centuries, but also the leap into electronic " \
+               "typesetting, remaining essentially unchanged. It was popularised " \
+               "in the 1960s with the release of Letraset sheets containing " \
+               "Lorem Ipsum passages, and more recently with desktop publishing " \
+               "software like Aldus PageMaker including versions of Lorem Ipsum."
 
 
 class BlogMainUrlTest(TestCase):  # pass
@@ -120,3 +130,89 @@ class CommentModelTestCase(TestCase):  # pass
         comment = Comment.objects.get(pk=1)
         expected_str = f"{comment.user_name} - {comment.user_email}"
         self.assertEqual(str(comment), expected_str)
+
+
+class AuthorModelTestCase(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.author = Author.objects.create(
+            f_name='Nobody',
+            l_name='Nothing',
+            pseudonym='NN',
+            email='nothing@noreply.com'
+        )
+
+    def test_author_full_name(self):
+        expected_full_name = 'Nobody Nothing'
+        self.assertEqual(self.author.full_name(), expected_full_name)
+
+    def test_author_str_representation_with_pseudonym(self):
+        expected_str = 'NN'
+        self.assertEqual(str(self.author), expected_str)
+
+    def test_author_str_representation_without_pseudonym(self):
+        self.author.pseudonym = ''
+        expected_str = 'Nobody Nothing'
+        self.assertEqual(str(self.author), expected_str)
+
+    def test_author_fields(self):
+        self.assertEqual(self.author.f_name, 'Nobody')
+        self.assertEqual(self.author.l_name, 'Nothing')
+        self.assertEqual(self.author.pseudonym, 'NN')
+        self.assertEqual(self.author.email, 'nothing@noreply.com')
+
+
+class BlogMainPageViewTest(TestCase):  # pass
+    @classmethod
+    def setUpTestData(cls):
+        user = User.objects.create(username='Jey123',
+                                   email='jay@op.pl',
+                                   password='Pies123!')
+
+        author = Author.objects.create(
+            f_name='Nobody',
+            l_name='Nothing',
+            pseudonym='NN',
+            email='nothing@noreply.com'
+        )
+
+        cls.post1 = Post.objects.create(
+            title='Post 1',
+            excerpt=5 * 'Excerpt 1',
+            image='posts/F1.png',
+            date=current_date,
+            txt=10 * 'Lorem ipsum dolor sit amet.',
+            slug='post-1',
+            user=user,
+            author=author
+        )
+        cls.post2 = Post.objects.create(
+            title='Post 2',
+            excerpt=5 * 'Excerpt 2',
+            image='posts/F1.png',
+            date=current_date,
+            txt=10 * 'Lorem ipsum dolor sit amet.',
+            slug='post-2',
+            user=user,
+            author=author
+        )
+
+    def setUp(self):
+        self.client = Client()
+        self.url = reverse('blog_main_page')
+
+    def test_blog_main_page_view(self):
+        response = self.client.get(self.url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/index.html')
+        self.assertEqual(list(response.context['posts']), [
+            self.post1, self.post2
+        ])
+        self.assertEqual(response.context['posts'].ordered, True)
+        self.assertEqual(
+            response.context['posts'].query.order_by, ('-date',)
+        )
+        self.assertContains(response, 'Post 1')
+        self.assertContains(response, 'Post 2')
+        self.assertNotContains(response, 'Post 3')
