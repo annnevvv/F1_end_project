@@ -22,20 +22,7 @@ class StatsUrlsTestsCase(TestCase):
 
 
 class StatsDriverresultModelTestCase(TestCase):  # bigfail
-    databases = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'test_database_name',
-        },
-        'mySQL': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'formula1',
-            'USER': 'root',
-            'PASSWORD': 'Ania123!',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        },
-    }
+    databases = {'mySQL'}
 
     @classmethod
     def setUpTestData(cls):
