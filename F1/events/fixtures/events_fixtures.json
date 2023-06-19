@@ -1,0 +1,117 @@
+[
+  {
+    "model": "events.circuit",
+    "pk": 2,
+    "fields": {
+      "name": "Circuit Gilles-Villeneuve",
+      "location": "Montreal, Canada"
+    }
+  },
+  {
+    "model": "events.circuit",
+    "pk": 3,
+    "fields": {
+      "name": "Red Bull Ring",
+      "location": "Spielberg, Austria"
+    }
+  },
+  {
+    "model": "events.circuit",
+    "pk": 4,
+    "fields": {
+      "name": "Silverstone Circuit",
+      "location": "Silverstone, Great Britain"
+    }
+  },
+  {
+    "model": "events.circuit",
+    "pk": 5,
+    "fields": {
+      "name": "Hungaroring",
+      "location": "Budapest, Hungary"
+    }
+  },
+  {
+    "model": "events.circuit",
+    "pk": 6,
+    "fields": {
+      "name": "Circuit de Spa-Francorchamps",
+      "location": "Spa, Belgium"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "title": "Canadian Grand Prix",
+      "organizer_email": "maciej@noreply.com",
+      "date": "2023-06-18",
+      "slug": "canadian-grand-prix",
+      "description": "We have a great race in Canada coming up! Get up to speed with everything you need to know about the 2023 Canadian Grand Prix, which takes place over 70 laps of the 4.361-kilometre Circuit Gilles-Villeneuve in Montreal on Sunday, June 18.",
+      "image": "events/images/montreal-race.png",
+      "circuit": 2,
+      "user": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "title": "Grosser Preis von Osterreirch",
+      "organizer_email": "mac@noreply.com",
+      "date": "2023-07-02",
+      "slug": "autstrian-grand-prix",
+      "description": "Get up to speed with everything you need to know about the 2023 Austrian Grand Prix, which takes place over 71 laps of the 4.318-kilometre Red Bull Ring in Spielberg on Sunday, July 2.",
+      "image": "events/images/spielberg-race.png",
+      "circuit": 3,
+      "user": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+      "title": "British Grand Prix",
+      "organizer_email": "anna@noreply.com",
+      "date": "2023-07-09",
+      "slug": "british-grand-prix",
+      "description": "Get up to speed with everything you need to know about the 2023 British Grand Prix, which takes place over 52 laps of the 5.891-kilometre Silverstone Circuit on Sunday, July 9.",
+      "image": "events/images/silverstone.png",
+      "circuit": 4,
+      "user": []
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 4,
+    "fields": {
+      "title": "Hungarian Grand Prix",
+      "organizer_email": "darek@noreply.com",
+      "date": "2023-07-23",
+      "slug": "hungarian-grand-prix",
+      "description": "Get up to speed with everything you need to know about the 2023 Hungarian Grand Prix, which takes place over 70 laps of the 4.381-kilometre Hungaroring in Budapest on Sunday, July 23.",
+      "image": "events/images/hungaroring.jpg",
+      "circuit": 5,
+      "user": []
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 5,
+    "fields": {
+      "title": "Belgian Grand Prix",
+      "organizer_email": "anna@noreply.com",
+      "date": "2023-07-30",
+      "slug": "belgian-grand-prix",
+      "description": "Get up to speed with everything you need to know about the 2023 Belgian Grand Prix, which takes place over 44 laps of the 7.004-kilometre Circuit de Spa-Francorchamps on Sunday, July 30.",
+      "image": "events/images/spa-franchorshamps.png",
+      "circuit": 6,
+      "user": []
+    }
+  }
+]
