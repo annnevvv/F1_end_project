@@ -192,7 +192,7 @@ circuits = [(1,'Bahrain Grand Prix', 'Bahrain', 'Sakhir', '2023-3-5', '15:00:00'
             (7, 'Gran Premio de Espana', 'Spain', 'Barcelona', '2023-6-4', '13:00:00'),
             (8, 'Grand Prix du Canada', 'Canada', 'Montreal', '2023-6-18', '18:00:00'),
             (9, 'Grosser Preis von Osterreich', 'Austria', 'Spielberg',
-             '2023-7-2', '13:00:00'),
+             '2023-7-2', '15:00:00'),
             (10, 'British Grand Prix', 'Great Britain', 'Silverstone',
              '2023-7-9', '14:00:00'),
             (11, 'Hungarian Grand Prix', 'Hungary', 'Budapest', '2023-7-23', '13:00:00'),
