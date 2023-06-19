@@ -30,6 +30,8 @@ def matchCitiesToApi(CITY_RACE):
             return 'Austin'
         case 'Las Vegas, NV':
             return 'Las Vegas'
+        case 'Spielberg':
+            return 'Knittelfeld'
         case whatever:
             return CITY_RACE
 
