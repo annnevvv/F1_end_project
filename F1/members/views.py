@@ -8,18 +8,18 @@ from blog.models import Post
 from events.models import Event
 
 
-def goToMemberRegister(request):
+def go_to_member_register(request):
     return render(request, 'members/main/members.html')
 
 
-def memberRegisterConfirmation(request):
+def member_register_confirmation(request):
     return render(request, 'members/main/confirm-member-account-created.html')
 
 
 @login_required(login_url='/login')
 @permission_required('blog.delete_post', login_url='/login',
                      raise_exception=True)
-def memberDashboard(request):
+def member_dashboard(request):
     posts = Post.objects.all().order_by("-date")
     events = Event.objects.all().order_by("-date")
 
@@ -53,7 +53,7 @@ def signUp(request):
 
 
 @login_required(login_url='/login')
-def deleteMemberAccount(request):
+def delete_member_account(request):
     if request.method == 'POST':
         user = request.user
         user.delete()
