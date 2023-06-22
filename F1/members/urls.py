@@ -14,7 +14,7 @@ urlpatterns = [
          name='delete_member_account'),
 
     path('password-change', SubPasswordChangeView.as_view(),
-         name='password-change1'),
+         name='password-change'),
     path('password-change-done', SubPasswordChangeDoneView.as_view(),
          name='password-change-done.html'),
     path('password-reset-done', auth_views.PasswordResetDoneView.as_view(
