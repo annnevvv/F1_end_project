@@ -150,7 +150,7 @@ p {
 
 /* inputy */
 
-#id_username, #id_email, #id_password, #id_password1, #id_password2, 
+#id_username, #id_email, #id_password, #id_password1, #id_password2,
 #id_title, #id_excerpt, #id_txt, #id_slug {
   width: 80%;
   padding: 8px;
@@ -162,8 +162,8 @@ p {
 }
 
 
-#id_username:focus, #id_email:focus, #id_password:focus, #id_password1:focus, #id_password2:focus, 
-#id_title, #id_excerpt, #id_txt, #id_slug {
+#id_username:focus, #id_email:focus, #id_password:focus, #id_password1:focus,
+#id_password2:focus, #id_title, #id_excerpt, #id_txt, #id_slug {
   border-color: #000000;
   box-shadow: 0 0 5px rgba(129, 5, 5, 0.5);
 }
