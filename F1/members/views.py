@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import Group
-from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.views import PasswordChangeView, \
+    PasswordChangeDoneView
 
 from .forms import RegistrationForm
 from blog.models import Post
@@ -66,6 +67,8 @@ def delete_member_account(request):
 
 class SubPasswordChangeView(PasswordChangeView):
     template_name = 'registration/password/password-change.html'
-    success_url = 'member_dashboard'
-class SubPasswordChangeDoneView(PasswordChangeView):
+    success_url = 'password-change-done'
+
+
+class SubPasswordChangeDoneView(PasswordChangeDoneView):
     template_name = 'registration/password/password-change-done.html'
