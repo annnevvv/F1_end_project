@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required, permission_required
@@ -115,7 +115,7 @@ class PostsStorageView(View):
 @login_required(login_url='/login')
 @permission_required("blog.add_post", login_url='/dashboard',
                      raise_exception=True)
-def createPost(request):
+def create_post(request):
     if request.method == 'POST':
         form = PostCreatedForm(request.POST)
         if form.is_valid():
@@ -129,5 +129,8 @@ def createPost(request):
     return render(request, 'blog/create-post.html', {'form': form})
 
 
-def postCreatedConfirmation(request):
-    return render(request, 'blog/post-create-confirmation.html')
+# def post_created_confirmation(request):
+#     return render(request, 'blog/post-create-confirmation.html')
+
+class PostCreatedConfirmationView(TemplateView):
+    template_name = 'blog/post-create-confirmation.html'

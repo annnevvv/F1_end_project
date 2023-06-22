@@ -15,14 +15,13 @@
 
 .box-container h3 {
     margin-bottom: 20px;
-    color: rgb(55, 50, 50);
     font-size: large;
     color: rgb(134, 23, 23);
-    margin: 16px;    
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    margin: 16px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-  
+
 .box-post {
     background-color: rgb(255, 255, 255);
     text-align: initial;
@@ -55,8 +54,8 @@
     transition: background-color 0.3s ease;
     margin: 10px;
 }
-  
-  
+
+
 .box-post button[type="submit"]:hover {
     background-color: #9b1919 ;
 }
@@ -72,13 +71,12 @@
     margin: 22px;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    hyphens: auto;
 }
 
 
-#event_title {
-    color: rgb(255, 8, 0);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.box-event #event_title {
+    color: white;
+    text-decoration: none;
 }
 
 
