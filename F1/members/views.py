@@ -67,3 +67,5 @@ def delete_member_account(request):
 class SubPasswordChangeView(PasswordChangeView):
     template_name = 'registration/password/password-change.html'
     success_url = 'member_dashboard'
+class SubPasswordChangeDoneView(PasswordChangeView):
+    template_name = 'registration/password/password-change-done.html'
