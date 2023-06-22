@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import Group
+from django.contrib.auth.views import PasswordChangeView
 
 from .forms import RegistrationForm
 from blog.models import Post
@@ -61,3 +62,8 @@ def delete_member_account(request):
         return redirect('homepage')
     else:
         return render(request, 'members/main/delete-member-account.html')
+
+
+class SubPasswordChangeView(PasswordChangeView):
+    template_name = 'registration/password/password-change.html'
+    success_url = 'member_dashboard'
