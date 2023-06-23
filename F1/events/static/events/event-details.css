@@ -1,21 +1,23 @@
 #main-header {
+    color: red;
     text-align: center;
     margin: 30px 0 30px 0;
 }
 
 #main-header h1 {
+    color: red;
     font-size: 1.5rem;
 }
 
 article {
   max-width: 60rem;
-  margin: 5rem auto;
+  margin: 20px auto;
   border-radius: 6px;
-  background-color: rgb(150, 150, 150, 0.5);
-  border: 4px solid red;
-  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.25);
+  background-color: rgb(227, 227, 227);
+  box-shadow: 1px 1px 22px rgba(0, 0, 0, 0.55);
   padding: 1rem;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #main-image {
@@ -24,7 +26,7 @@ article {
   object-fit: cover;
   left: calc(50% - 5rem);
   border-radius: 50%;
-  border: 4px solid #350490;
+  box-shadow: 1px 1px 22px rgba(0, 0, 0, 0.95);
 }
 
 section:first-of-type {
@@ -44,7 +46,7 @@ address span {
 }
 
 #details > p {
-  color: #665386;
+  color: #540b0b;
   padding: 1rem;
   border-radius: 4px;
   max-width: 80%;
@@ -78,8 +80,9 @@ address span {
 #registration input {
   font: inherit;
   width: 40%;
-  background-color: #ebeaee;
+  background-color: white;
   border: 1px solid #4b4753;
+  box-shadow: 0 0 11px red;
   border-radius: 4px;
   padding: 0.25rem;
 }
@@ -91,4 +94,22 @@ address span {
 #registration .errorlist {
   margin-bottom: 0.5rem;
   color: #880824;
+}
+
+#baton[type="submit"] {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.597);
+  font-size: large;
+  background-color: #540b0b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+
+#baton[type="submit"]:hover {
+  background-color: #020082;
 }

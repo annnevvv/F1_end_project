@@ -23,25 +23,33 @@
     <section id="details">
         <h2>About Race</h2>
         <p>{{ event.description }}</p>
-        <footer>
+        <h3>Join this team for this event! They are waiting with us:</h3>
+        <p>{% for user in event.user.all %}
+                @{{ user }},
+            {% endfor %}</p>
+
+        <h3>
             <p>Need more details? Please <a href="mailto:{{ event.organizer_email }}">contact the organizer</a> (but don't spam us)</p>
-        </footer>
+        </h3>
     </section>
 
     <section id="registration">
-        <h2>Join us!</h2>
-        <p>You must be logged-in to register!</p>
+        <h2>Join team!</h2>
+        <p>You must be logged-in to register! </p>
+        <p>Enter your email belowEnter your email below</p>
         <form action="{% url 'event-detail' event.slug %}" method="POST">
             {% csrf_token %}
             <ul>
             {{ form.as_ul }}
             </ul>
             <div id="registration-actions">
-                <button>Register</button>
+                <button type="submit" id="baton">SignUp for Event</button>
             </div>
         </form>
     </section>
-</article>
+</article><br>
+
+<article></article>
 
 {% else %}
 <p>No event found for this slug, sorry!</p>
