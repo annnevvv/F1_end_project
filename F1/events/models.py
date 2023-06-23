@@ -18,7 +18,7 @@ class Event(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='events/images')
     circuit = models.ForeignKey(Circuit, on_delete=models.CASCADE)
-    user = models.ManyToManyField(User, blank=True, null=True)
+    user = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return f'{self.title} - {self.date}'

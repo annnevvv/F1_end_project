@@ -26,10 +26,19 @@
         <span class="tag">{{ tag.caption }}</span>
         {% endfor %}
     </div>
-
     <article>
         <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-        <address>By <a href="mailto:{{ post.author.e_mail }}"> {{ post.author }}</a></address>
+        <address>By <a href="mailto:{{ post.user.e_mail }}">
+            {% if post.author %}
+                {% if post.author.pseudonym %}
+                    {{ post.author.pseudonym }}
+                {% else %}
+                    {{ post.author.full_name }}
+                {% endif %}
+            {% else %}
+                {{ post.user }}
+            {% endif %}
+        </a></address>
         <div>
           Last updated on <time>{{ post.date|date:"d M Y" }}</time>
         </div>
