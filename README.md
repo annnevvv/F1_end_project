@@ -71,4 +71,65 @@ b.	b) Insert the last race number you would like to add to the database. It will
 a.	Execute the file
 b.	b) Insert the sprint number associated with the race. If there was a sprint with the 4th race, type 4, and it will add the sprint results to the database with an 's' on the ID number.
 
+ Homepage view 1:
+ ![homepage1](https://github.com/annnevvv/F1_end_project/assets/118659024/0ab715b5-dc8d-4ca7-978b-6eaeef91049c)
  
+ Homepage view 2:
+![homepage2](https://github.com/annnevvv/F1_end_project/assets/118659024/a113f436-b4c1-4e72-84af-bb1e53adc991)
+
+Stats view 1:
+![stats1](https://github.com/annnevvv/F1_end_project/assets/118659024/083accb7-3772-4b48-835c-00d309c8aa51)
+
+Stats view 2:
+![stats2](https://github.com/annnevvv/F1_end_project/assets/118659024/281c5840-b6dd-44ed-9729-b4dc72f5cc6f)
+
+Stats view 3:
+![stats4](https://github.com/annnevvv/F1_end_project/assets/118659024/2458d16d-4531-4e52-a30e-3c2f571b596f)
+
+Stats view 4:
+![stats5](https://github.com/annnevvv/F1_end_project/assets/118659024/e394a0ed-9356-45b2-8a8d-274e34402506)
+
+Stats view 5:
+![stats6](https://github.com/annnevvv/F1_end_project/assets/118659024/929e2474-d4d8-4e70-9e26-15145d30fc3e)
+
+Quiz view 1:
+![quiz1](https://github.com/annnevvv/F1_end_project/assets/118659024/f293a37f-e549-47b7-b3b1-9d4a9779b573)
+
+Quiz view 2:
+![quiz2](https://github.com/annnevvv/F1_end_project/assets/118659024/a9bc42f4-ee6a-468f-a20e-a1bbf384fb40)
+
+Blog view 1:
+![blog1](https://github.com/annnevvv/F1_end_project/assets/118659024/9bbb2a2d-5ccf-49c6-961e-2337196c68ad)
+
+Blog view 2:
+![blog2](https://github.com/annnevvv/F1_end_project/assets/118659024/792c1c29-ae07-4362-bdf2-318021c5be59)
+
+Blog view 3:
+![blog3](https://github.com/annnevvv/F1_end_project/assets/118659024/91195ff0-5b0f-464c-bc23-80e26aac5185)
+
+Blog view 4:
+![blog4](https://github.com/annnevvv/F1_end_project/assets/118659024/e84cc841-0ef2-4928-acc7-1c039ca87708)
+
+Events view 1:
+![events1](https://github.com/annnevvv/F1_end_project/assets/118659024/dbe31ed7-b910-46a3-8248-f37fd2eab391)
+
+Events view 2:
+![events2](https://github.com/annnevvv/F1_end_project/assets/118659024/75b54b2f-5d02-4ab7-8d51-ecc556f9dc93)
+
+Events view 3:
+![events3](https://github.com/annnevvv/F1_end_project/assets/118659024/b1a5e03a-3792-4c63-9bad-fef3342404bc)
+
+Members view 1:
+![members1](https://github.com/annnevvv/F1_end_project/assets/118659024/60441cab-c850-46a6-a9f9-891cf290ea0a)
+
+Members view 2:
+![members2](https://github.com/annnevvv/F1_end_project/assets/118659024/e9181c01-f13e-4a97-b3a7-7e4e897d95f7)
+
+Members view 3:
+![members3](https://github.com/annnevvv/F1_end_project/assets/118659024/4e230c58-6c08-491b-b319-a2e403dfd73d)
+
+About view 1:
+![about1](https://github.com/annnevvv/F1_end_project/assets/118659024/3a89de77-c8e6-4aca-ac7d-7c9b13c3a18c)
+
+About view 2:
+![about2](https://github.com/annnevvv/F1_end_project/assets/118659024/aa5dd9a4-9ced-4fb9-bf2a-6445b14a5b14)
